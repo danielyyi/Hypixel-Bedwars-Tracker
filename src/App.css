@@ -1,38 +1,393 @@
-.App {
-  text-align: center;
+*{
+  font-family: 'Bungee', cursive;
+  margin: 0;
+  padding: 0; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: rgb(70, 70, 70)
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2{
+  color:white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+#SearchForm{
+  position:relative;
+  align-self: center;
+}
+
+
+
+h1{
+  display:flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  color:white;
+ 
+}
+
+nav{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 10vh;
+  background-color: rgb(39, 38, 38);
+  line-height: 27px;
+  
+}
+
+.logo{
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 22px;
+}
+
+.player-head{
+  width:40px;
+  height: 40px;
+}
+
+.player-head-wrapper{
+  display: flex;
+  justify-content: center;
+  margin:10px
+}
+
+.box{
+
+  position: relative;
+  top:30px;
+  display: flex;
+  justify-content: center;
+  max-height: 100vh;
+  align-self: center;
+}
+
+.box h2{
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box{
+  min-width: 300px;
+  max-height: 100px;
+}
+
+.box h2{
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+  display: flex;
+  margin-bottom:10px;
+}
+
+
+
+.box input[type="text"]{
+  background:white;
+  width:340px;
+  height: 50px;
+  border:none;
+  outline:none;
+  padding: 0 25px;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#enter{
+  font-size: 18px;
+  position: relative;
+  width: 100px;
+  height: 50px;
+  border:none;
+  outline:none;
+  cursor: pointer;
+  background-color: rgb(22, 136, 22);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+
+#enter:hover{
+  background-color: rgb(228, 78, 78);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.infoWrapper{
+  position: relative;
+  top:35px;
+  align-self: center;
+  display: flex;
+  align-items:center;
+  text-align: center;
+  justify-content: center;
+  margin: 10px 0px 0px 0px;
+  border-radius: 7px;
 }
+
+.infoName{
+  line-height: 2em;
+  font-size: 30px;
+  background-color: rgb(39, 38, 38);
+  color:white;
+  min-width: 80%;
+  max-width: 80%;
+  max-height: none;
+  display: flex;
+  justify-content:center;
+  align-content: center;
+  border-radius: 3px;
+}
+
+
+.infoOverallStats{
+  line-height: 2em;
+  font-size: 30px;
+  background-color: rgb(51, 51, 51);
+  width: 80%;
+  min-height: 100px;
+  max-height: none;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 3px;
+  flex-wrap: wrap;
+ 
+}
+
+
+
+.h3{
+  font-size: 40;
+  text-decoration: underline;
+}
+
+.overallStat{
+  font-size: 20px;
+  height: 27px;
+  color: rgb(219, 219, 219);
+}
+
+.oStatValue{
+  font-size: 30px;
+  color: white;
+}
+
+
+.oStatBlock{
+  margin: 5px 10px 0px 10px;
+}
+
+
+.tabContainer{
+  width: 80%;
+  height: 350px;
+  text-align: center;
+  background-color: rgb(58, 58, 58);
+  color: white;
+}
+
+.tabContainer .buttonContainer{
+  height:15%;
+  background-color: rgb(70, 70, 70)
+  
+}
+
+.tabContainer .buttonContainer button{
+  width: 25%;
+  height:100%;
+  float: left;
+  border:none;
+  outline: none;
+  padding:10px;
+  font-size: 18px;
+  background-color: rgb(58, 58, 58);
+  color: white;
+}
+
+.tabContainer .buttonContainer button:hover{
+  background-color:   rgb(63, 62, 62);
+}
+
+.tabContainer .tabPanel{
+  height: 900px;
+  font-size: 22px;
+  background-color: rgb(58, 58, 58);
+  color: white;
+
+  display: flex;
+}
+
+
+#wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+#chart {
+  width:300px;
+  height:300px;
+}
+
+
+.error-text{
+  color: rgb(255, 0, 0);
+  word-spacing: 2px;
+  line-height: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 80%;
+  top: -45px;
+  height: 300px;
+  margin: 100px auto 0;
+  word-break: break-all;
+
+}
+
+.bloc-tabs {
+  display: flex;
+}
+.tabs {
+
+  padding: 15px;
+  text-align: center;
+  width: 90%;
+  background: rgb(41, 41, 41);
+  cursor: pointer;
+
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+  color: white;
+}
+
+.active-tabs  {
+  background: rgb(51, 51, 51);
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: rgb(0, 230, 0);
+}
+
+
+
+button {
+  border: none;
+  
+}
+
+.content {
+  background: rgb(51, 51, 51);
+  padding: 20px;
+  height: 100%;
+  display: none;
+  color: white;
+}
+.content h2 {
+  padding: 0px 0 5px 0px;
+}
+
+.content p {
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+.active-content {
+  display: block;
+  color: white;
+}
+
+.stat-cards-holder{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.stat-card{
+  background-color: rgb(43, 43, 43);
+  width: 325px;
+  height: 350px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 13px 0px;
+}
+
+.stat-card-info{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.stat-card-ul{
+  list-style: none;
+}
+
+.stat-card-header{
+  font-size: 12px;
+}
+.stat-card-value{
+  margin: -25px 0px 0px 0px;
+  font-size: 25px;
+}
+
+@media screen and (max-width: 580px) {
+  #enter{
+    height: 42px;
+    width: 90px;
+    top:3px
+  }
+  .box input[type="text"] {
+    width: 150px;
+    height: 40px;
+  }
+  .infoName{
+    font-size: 20px;
+  }
+
+  .logo{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 15px;
+  }
+
+  .overallStat{
+    font-size: 18px;
+    height: 27px;
+    color: rgb(219, 219, 219);
+  }
+  
+  .oStatValue{
+    font-size: 28px;
+    color: white;
+  }
+
+  .error-text{
+    font-size: 12px;
+  }
+  
+  
+  
+}
+
+
+
+
+
+
