@@ -6,9 +6,6 @@ import Nav from "./Nav";
 import OverallStats from "./OverallStats";
 import Tabs from "./Tabs";
 
-  
-
-
 function App() {
   
   return (
