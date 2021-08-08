@@ -225,17 +225,6 @@ nav{
   display: flex;
 }
 
-
-#wrapper {
-  display: flex;
-  justify-content: space-evenly;
-}
-#chart {
-  width:300px;
-  height:300px;
-}
-
-
 .error-text{
   color: rgb(255, 0, 0);
   word-spacing: 2px;
@@ -353,6 +342,26 @@ h3{
   padding: 2px;
 
 }
+
+.pie-graph-card{
+  width: 30%;
+  height: 30%;
+  background-color: rgb(43, 43, 43);
+  text-align: center;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px
+}
+.bar-graph-card{
+  width: 60%;
+  height: 50%;
+  background-color: rgb(43, 43, 43);
+  text-align: center;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px
+}
+
 @media screen and (max-width: 1000px) {
   .stat-card{
     width: 90%;
