@@ -4,7 +4,7 @@ import "./App.css";
 
 function SearchBar() {
     return (
-        <body>
+        <div>
             <h2 className="box">Find Stats</h2>
                 <div className="box">
                     
@@ -13,7 +13,7 @@ function SearchBar() {
                         <button id="enter">Enter</button>
                     </form>
                 </div>
-        </body>
+        </div>
     );
 }
 export default SearchBar;

@@ -17,6 +17,7 @@ function OverallStats({childToParent}) {
     //show error messages
     const [invalidName, invalidNameShow] = useState(false)
     const [frequentName, frequentNameShow] = useState(false)
+    const [noData, noDataShow] = useState(false)
 
     const [info, infoShow] = useState(false)
 
@@ -57,16 +58,22 @@ function OverallStats({childToParent}) {
             const rawRes = await fetch(`https://api.hypixel.net/player?key=${key}&name=${profile}`)
             const res = await rawRes.json()
             console.log(res)
-            if (res.success == true && res.player == null) {
+            if (res.success === true && res.player == null) {
                 invalidNameShow(true)
             }
-            else if (res.success == false && res.cause === "You have already looked up this name recently") {
+            else if (res.success === false && res.cause === "You have already looked up this name recently") {
                 frequentNameShow(true)
             }
             else {
-                infoShow(true)
-                childToParent(res)
-                getBedwarsData(res)
+                if(res.player.stats.Bedwars == null){
+                    noDataShow(true)
+                }
+                else{
+                    infoShow(true)
+                    childToParent(res)
+                    getBedwarsData(res)
+                }
+
             }
         } catch (error) {
             console.log(error)
@@ -95,17 +102,20 @@ function OverallStats({childToParent}) {
 
 
     return (
-        <body>
+        <div>
             <div className="infoWrapper" id="infoWrapper">
-                {invalidName ? <div className="error-text">Invalid player name</div> : null}
+                <div>
+                {invalidName ? <div className="error-text">Invalid player name.</div> : null}
+                {noData ? <div className="error-text">The player you looked up does not have any Bedwars data.</div> : null}           
                 {frequentName ? <div className="error-text">You have already looked up this name recently. Wait 1 minute before searching it again.</div> : null}
+                </div>
             </div>
             {info ?
                 <div id="infoVisible" >
 
                     <div className="infoWrapper" id="infoWrapper">
                         <div className="infoName" id="infoName">
-                            <div className="player-head-wrapper"><img src={`https://crafatar.com/avatars/${state.uuid}`} className="player-head"/></div>
+                            <div className="player-head-wrapper"><img alt="playerhead" src={`https://crafatar.com/avatars/${state.uuid}`} className="player-head"/></div>
                             {state.displayName}'s Bedwars Stats
                         </div>
                     </div>
@@ -159,7 +169,7 @@ function OverallStats({childToParent}) {
                 </div>
                 : null}
 
-        </body>
+</div>
 
     );
 

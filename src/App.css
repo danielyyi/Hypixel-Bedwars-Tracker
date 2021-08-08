@@ -333,6 +333,7 @@ button {
 .stat-card-info{
   display: flex;
   justify-content: space-evenly;
+  margin: 8px 0px;
 }
 
 .stat-card-ul{
@@ -345,6 +346,12 @@ button {
 .stat-card-value{
   margin: -30px 0px -8px 0px;
   font-size: 30px;
+}
+
+h3{
+  background-color: rgb(36, 36, 36);
+  padding: 2px;
+
 }
 @media screen and (max-width: 1000px) {
   .stat-card{
@@ -360,7 +367,7 @@ button {
     top:3px
   }
   .stat-card{
-   height: 300px;
+   height: 290px;
   }
   .box input[type="text"] {
     width: 150px;

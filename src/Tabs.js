@@ -2,28 +2,24 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 function Tabs({ res }) {
-
+  const [info, infoShow] = useState(false)
 
   useEffect(() => {
-    if (res.success == true) {
-      console.log("calling assign data")
+    if (res.success === true) {
+      console.log("Calling AssignData...")
       assignData(res)
     }
-    else {
-      console.log("res hasnt changed yet")
-    }
-
   }, [res])
 
   const [state, setState] = useState({
-    One: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    Two: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    Three: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    Four: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    One: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    Two: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    Three: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    Four: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   }, []);
 
   function updateState(stats) {
-    console.log("Updating State....")
+    console.log("Updating State...")
     setState({
       ...state,
       One: stats.one_statsArray,
@@ -44,12 +40,12 @@ function Tabs({ res }) {
     const specificStatsArray = [one_statsArray, two_statsArray, three_statsArray, four_statsArray]
     const gamemodesArray = ["eight_one", "eight_two", "four_three", "four_four"]
     try {
-      for (let k = 0; k<specificStatsArray.length; k++) {
+      for (let k = 0; k < specificStatsArray.length; k++) {
         let currentGamemode = specificStatsArray[k]
 
         for (let i = 0; i < statsArray.length; i++) {
           if (i === 9) {
-            if (res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[0]}_bedwars`] != undefined) {
+            if (res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[0]}_bedwars`] !== undefined) {
               currentGamemode[i] = Math.round(100 * (res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[0]}_bedwars`]) / (res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[8]}_bedwars`])) / 100
             }
             else {
@@ -57,7 +53,7 @@ function Tabs({ res }) {
             }
           }
           else if (i === 10) {
-            if (res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[2]}_bedwars`] != undefined) {
+            if (res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[2]}_bedwars`] !== undefined) {
               currentGamemode[i] = Math.round(100 * (res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[2]}_bedwars`]) / (res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[3]}_bedwars`])) / 100
             }
             else {
@@ -65,7 +61,7 @@ function Tabs({ res }) {
             }
           }
           else if (i === 11) {
-            if (res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[i]}`] != undefined) {
+            if (res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[i]}`] !== undefined) {
               currentGamemode[i] = res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[i]}`]
             }
             else {
@@ -73,7 +69,7 @@ function Tabs({ res }) {
             }
           }
           else {
-            if (res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[i]}_bedwars`] != undefined) {
+            if (res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[i]}_bedwars`] !== undefined) {
               currentGamemode[i] = res.player.stats.Bedwars[`${gamemodesArray[k]}_${statsArray[i]}_bedwars`]
             }
             else {
@@ -86,9 +82,10 @@ function Tabs({ res }) {
     } catch (e) {
       console.log(e)
     }
-    console.log("calling Update")
+    console.log("Calling UpdateState...")
     const stats = { one_statsArray, two_statsArray, three_statsArray, four_statsArray }
     updateState(stats)
+    infoShow(true)
 
   }
 
@@ -99,8 +96,11 @@ function Tabs({ res }) {
   };
   //----------------------------------------------------
   return (
+<div>
+  {info ?
     <div className="container">
-      <div className="bloc-tabs">
+      
+       <div className="bloc-tabs"> 
         <button
           className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(1)}
@@ -119,7 +119,7 @@ function Tabs({ res }) {
         <div className={toggleState === 1 ? "content  active-content" : "content"}>
           <div className="stat-cards-holder">
             <div className="stat-card">
-              <h3>1v8</h3>
+              <h3>1v8</h3> 
               <div className="stat-card-info">
                 <div className="stat-card-column">
                   <ul className="stat-card-ul">
@@ -250,6 +250,9 @@ function Tabs({ res }) {
 
 
       </div>
+
+    </div>
+    :null}
     </div>
   );
 }
