@@ -343,8 +343,8 @@ button {
   font-size: 12px;
 }
 .stat-card-value{
-  margin: -25px 0px 0px 0px;
-  font-size: 25px;
+  margin: -30px 0px -8px 0px;
+  font-size: 30px;
 }
 @media screen and (max-width: 1000px) {
   .stat-card{
