@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 
 const key = process.env.REACT_APP_API_KEY
 
-function OverallStats() {
+function OverallStats({childToParent}) {
     const { search } = useLocation()
     const searchParams = new URLSearchParams(search)
     const profile = searchParams.get('profile')
@@ -14,8 +14,10 @@ function OverallStats() {
         }
     }, [])
 
+    //show error messages
     const [invalidName, invalidNameShow] = useState(false)
     const [frequentName, frequentNameShow] = useState(false)
+
     const [info, infoShow] = useState(false)
 
     const [state, setState] = useState({
@@ -30,7 +32,7 @@ function OverallStats() {
         gamesPlayed: 0,
         displayName: '',
         uuid:''
-    });
+    }, []);
 
     function updateState(stats) {
         setState({
@@ -46,7 +48,7 @@ function OverallStats() {
             gamesPlayed: stats.gamesPlayed,
             displayName: stats.displayName,
             uuid: stats.uuid
-        })
+        }, [])
     }
 
     async function ConnectAPI(profile) {
@@ -63,6 +65,7 @@ function OverallStats() {
             }
             else {
                 infoShow(true)
+                childToParent(res)
                 getBedwarsData(res)
             }
         } catch (error) {

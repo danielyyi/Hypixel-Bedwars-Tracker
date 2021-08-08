@@ -323,7 +323,7 @@ button {
 
 .stat-card{
   background-color: rgb(43, 43, 43);
-  width: 325px;
+  width: 45%;
   height: 350px;
   text-align: center;
   border-radius: 5px;
@@ -346,6 +346,12 @@ button {
   margin: -25px 0px 0px 0px;
   font-size: 25px;
 }
+@media screen and (max-width: 1000px) {
+  .stat-card{
+    width: 90%;
+  }
+
+}
 
 @media screen and (max-width: 580px) {
   #enter{
@@ -353,12 +359,22 @@ button {
     width: 90px;
     top:3px
   }
+  .stat-card{
+   height: 300px;
+  }
   .box input[type="text"] {
     width: 150px;
     height: 40px;
   }
   .infoName{
     font-size: 20px;
+  }
+  .stat-card-header{
+    font-size: 9px;
+  }
+  .stat-card-value{
+    margin: -17px 0px 0px 0px;
+    font-size: 19px;
   }
 
   .logo{
