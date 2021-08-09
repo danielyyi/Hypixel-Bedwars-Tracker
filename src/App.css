@@ -153,7 +153,7 @@ nav{
   font-size: 30px;
   background-color: rgb(51, 51, 51);
   width: 80%;
-  min-height: 100px;
+  min-height: 90px;
   max-height: none;
   display: flex;
   justify-content: space-around;
@@ -170,19 +170,21 @@ nav{
 }
 
 .overallStat{
-  font-size: 20px;
-  height: 27px;
+  font-size: 12px;
+  height: 20px;
   color: rgb(219, 219, 219);
+  margin-top: 0px;
 }
 
 .oStatValue{
-  font-size: 30px;
+  font-size: 25px;
   color: white;
 }
 
 
 .oStatBlock{
-  margin: 5px 10px 0px 10px;
+  margin: 0px 10px 0px 10px;
+  
 }
 
 
@@ -345,7 +347,7 @@ h3{
 
 .pie-graph-card{
   width: 30%;
-  height: 30%;
+  height: 50vh;
   background-color: rgb(43, 43, 43);
   text-align: center;
   border-radius: 5px;
@@ -353,17 +355,26 @@ h3{
   padding: 10px
 }
 .bar-graph-card{
-  width: 60%;
-  height: 50%;
+  height: 50vh;
+  width: 45%;
   background-color: rgb(43, 43, 43);
   text-align: center;
   border-radius: 5px;
   margin: 5px;
-  padding: 10px
+  padding: 10px;
+  padding-bottom: 60px;
+}
+
+#chart-header{
+  font-size: 17px;
+  word-break: keep-all;
 }
 
 @media screen and (max-width: 1000px) {
   .stat-card{
+    width: 90%;
+  }
+  .bar-graph-card{
     width: 90%;
   }
 
@@ -374,6 +385,12 @@ h3{
     height: 42px;
     width: 90px;
     top:3px
+  }
+  .bar-graph-card{
+    height: 30vh;
+  }
+  #chart-header{
+    font-size: 12px;
   }
   .stat-card{
    height: 290px;
@@ -400,14 +417,22 @@ h3{
   }
 
   .overallStat{
-    font-size: 18px;
+    font-size: 10px;
     height: 27px;
     color: rgb(219, 219, 219);
   }
-  
   .oStatValue{
-    font-size: 28px;
+    margin: -7px 0px;
+    font-size: 20px;
     color: white;
+  }
+
+  .oStatBlock{
+    margin-bottom: -20px;
+  }
+
+  .infoOverallStats{
+    padding-bottom: 30px;
   }
 
   .error-text{

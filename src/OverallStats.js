@@ -48,7 +48,9 @@ function OverallStats({childToParent}) {
             bedsBroken: stats.bedsBroken,
             gamesPlayed: stats.gamesPlayed,
             displayName: stats.displayName,
-            uuid: stats.uuid
+            uuid: stats.uuid,
+            finalKills: stats.finalKills,
+            finalDeaths: stats.finalDeaths
         }, [])
     }
 
@@ -93,8 +95,10 @@ function OverallStats({childToParent}) {
         const gamesPlayed = res.player.stats.Bedwars.games_played_bedwars
         const displayName = res.player.displayname
         const uuid = res.player.uuid
+        const finalKills = res.player.stats.Bedwars.final_kills_bedwars
+        const finalDeaths = res.player.stats.Bedwars.final_deaths_bedwars
 
-        const stats = { wins, losses, winRate, kills, deaths, kd, bedsBroken, bedsLost, gamesPlayed, displayName,uuid }
+        const stats = { wins, losses, winRate, kills, deaths, kd, bedsBroken, bedsLost, gamesPlayed, displayName, uuid, finalKills, finalDeaths }
         updateState(stats)
     }
 
@@ -148,8 +152,6 @@ function OverallStats({childToParent}) {
                                 <div className="overallStat">KD</div>
                                 <div className="oStatValue">{state.kd}</div>
                             </div>
-
-
                             <div className="oStatBlock">
                                 <div className="overallStat" style={{ color: 'lime' }}>Beds Broken</div>
                                 <div className="oStatValue">{state.bedsBroken}</div>
@@ -157,6 +159,14 @@ function OverallStats({childToParent}) {
                             <div className="oStatBlock">
                                 <div className="overallStat" style={{ color: 'red' }}>Beds Lost</div>
                                 <div className="oStatValue">{state.bedsLost}</div>
+                            </div>
+                            <div className="oStatBlock">
+                                <div className="overallStat" style={{ color: 'lime' }}>Final Kills</div>
+                                <div className="oStatValue">{state.finalKills}</div>
+                            </div>
+                            <div className="oStatBlock">
+                                <div className="overallStat" style={{ color: 'red' }}>Final Deaths</div>
+                                <div className="oStatValue">{state.finalDeaths}</div>
                             </div>
                             <div className="oStatBlock">
                                 <div className="overallStat">Games Played</div>

@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { Bar, defaults } from "react-chartjs-2"
+import { Bar, Pie, Doughnut, defaults } from "react-chartjs-2"
 
 defaults.color = "white"
+defaults.font.family = 'Bungee'
+defaults.plugins.tooltip.intersect = false
 
 function Tabs({ res }) {
   const [resourcesChartData, setResourcesChartData] = useState({})
@@ -53,6 +55,30 @@ function Tabs({ res }) {
     )
   }
 
+  const [killTypesChartData, setKillTypesChartData] = useState({})
+  const updateKillTypesChartData = (killTypesArray) => {
+    setKillTypesChartData({
+      labels: [
+        'Entity Attack',
+        'Void',
+        'Fall',
+      ],
+      datasets: [{
+        data: [
+          killTypesArray[0],
+          killTypesArray[1],
+          killTypesArray[2],
+        ],
+        backgroundColor: [
+          'red',
+          'lime',
+          'blue',
+        ],
+        hoverOffset: 4
+      }]
+ 
+    })
+  }
   
 
   const [info, infoShow] = useState(false)
@@ -128,9 +154,11 @@ function Tabs({ res }) {
     } catch (e) {
       console.log(e)
     }
+    assignResourceChart(res.player.stats.Bedwars)
+    assignKillTypesChart(res.player.stats.Bedwars)
     console.log("Calling UpdateState...")
     const stats = { one_statsArray, two_statsArray, three_statsArray, four_statsArray }
-    assignResourceChart(res.player.stats.Bedwars)
+
     updateState(stats)
     infoShow(true)
   }
@@ -152,6 +180,24 @@ function Tabs({ res }) {
       console.log(e)
     }
     updateResourcesChartData(resourcesArray)
+  }
+
+  const killTypes = ["entity_attack", "void", "fall"]
+  const killTypesArray = [[], [], []]
+  const assignKillTypesChart = (bedwars) =>{
+    try {
+      for(let i = 0; i<killTypes.length; i++){
+        if(bedwars[`${killTypes[i]}_kills_bedwars`] !== undefined){
+          killTypesArray[i] = bedwars[`${killTypes[i]}_kills_bedwars`]
+        }
+        else{
+          killTypesArray[i] = 0
+        }
+      }
+    } catch (e) {
+      console.log(e)
+    }
+    updateKillTypesChartData(killTypesArray)
   }
 
   //handles which tabs panel is currently shown
@@ -303,22 +349,32 @@ function Tabs({ res }) {
             </div>
             <div className={toggleState === 2 ? "content  active-content" : "content"}>
               <div className="stat-cards-holder">
+              
                 <div className="bar-graph-card">
+                  <h3 id="chart-header"># of Resources Collected by Gamemode</h3>
                   <Bar 
                   data={resourcesChartData} 
                   options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
                     plugins:{
                       title: {
-                        display: true,
+                        display: false,
                         text: "# of Resources Collected by Gamemode"
                       }
                     }
                   }}/>
                 </div>
-                <div className="pie-graph-card">
-
-                </div>
-              </div>
+                <div className="bar-graph-card">
+                <h3 id="chart-header">Types of Kills by Amount</h3>
+                <Pie 
+                data={killTypesChartData}
+                options={{
+                  responsive: true,
+                  maintainAspectRatio: false
+                }}/>
+                  </div>
+                  </div>
             </div>
           </div>
 
