@@ -1,53 +1,53 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { Bar, Pie, Doughnut, defaults } from "react-chartjs-2"
+import { Bar, Pie, Doughnut, Radar, defaults } from "react-chartjs-2"
 
 defaults.color = "white"
 defaults.font.family = 'Bungee'
-defaults.plugins.tooltip.intersect = false
+defaults.plugins.tooltip.intersect =true
 
 function Tabs({ res }) {
   const [resourcesChartData, setResourcesChartData] = useState({})
   const updateResourcesChartData = (resourcesArray) => {
     setResourcesChartData({
       labels: ['1x8', '2x8', '3x4', '4x4'],
-      
+
       datasets: [
         {
-          
+
           label: "Iron",
           backgroundColor: "gray",
           data: [
-            resourcesArray[0][0], 
-            resourcesArray[1][0], 
-            resourcesArray[2][0], 
+            resourcesArray[0][0],
+            resourcesArray[1][0],
+            resourcesArray[2][0],
             resourcesArray[3][0]]
         },
         {
           label: "Gold",
           backgroundColor: "yellow",
           data: [
-            resourcesArray[0][1], 
-            resourcesArray[1][1], 
-            resourcesArray[2][1], 
+            resourcesArray[0][1],
+            resourcesArray[1][1],
+            resourcesArray[2][1],
             resourcesArray[3][1]]
         },
         {
           label: "Diamond",
           backgroundColor: "aqua",
           data: [
-            resourcesArray[0][2], 
-            resourcesArray[1][2], 
-            resourcesArray[2][2], 
+            resourcesArray[0][2],
+            resourcesArray[1][2],
+            resourcesArray[2][2],
             resourcesArray[3][2]]
         },
         {
           label: "Emerald",
           backgroundColor: "lime",
           data: [
-            resourcesArray[0][3], 
-            resourcesArray[1][3], 
-            resourcesArray[2][3], 
+            resourcesArray[0][3],
+            resourcesArray[1][3],
+            resourcesArray[2][3],
             resourcesArray[3][3]]
         },
       ]
@@ -56,7 +56,7 @@ function Tabs({ res }) {
   }
 
   const [killTypesChartData, setKillTypesChartData] = useState({})
-  const updateKillTypesChartData = (killTypesArray) => {
+  const updateKillTypesChartData = (bedwars) => {
     setKillTypesChartData({
       labels: [
         'Entity Attack',
@@ -65,9 +65,9 @@ function Tabs({ res }) {
       ],
       datasets: [{
         data: [
-          killTypesArray[0],
-          killTypesArray[1],
-          killTypesArray[2],
+          bedwars.entity_attack_kills_bedwars,
+          bedwars.void_kills_bedwars,
+          bedwars.fall_kills_bedwars,
         ],
         backgroundColor: [
           'red',
@@ -76,13 +76,82 @@ function Tabs({ res }) {
         ],
         hoverOffset: 4
       }]
- 
+
     })
   }
-  
+
+  const [ratiosChartData, setRatiosChartData] = useState({})
+  const updateRatiosChartData = (stats) => {
+    setRatiosChartData({
+      labels: [
+        'Beds Broken',
+        'Beds Lost',
+        'Kills',
+        'Deaths',
+        'Final Kills',
+        'Final Deaths',
+      ],
+      datasets: [{
+        label: '1v8',
+        data: [
+          stats.one_statsArray[4] / stats.one_statsArray[8],
+          stats.one_statsArray[5] / stats.one_statsArray[8],
+          stats.one_statsArray[2] / stats.one_statsArray[8],
+          stats.one_statsArray[3] / stats.one_statsArray[8],
+          stats.one_statsArray[6] / stats.one_statsArray[8],
+          stats.one_statsArray[7] / stats.one_statsArray[8]],
+        fill: true,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgb(255, 99, 132)',
+        pointBorderColor: 'white',
+      }, {
+        label: '2v8',
+        data: [
+          stats.two_statsArray[4] / stats.two_statsArray[8],
+          stats.two_statsArray[5] / stats.two_statsArray[8],
+          stats.two_statsArray[2] / stats.two_statsArray[8],
+          stats.two_statsArray[3] / stats.two_statsArray[8],
+          stats.two_statsArray[6] / stats.two_statsArray[8],
+          stats.two_statsArray[7] / stats.two_statsArray[8]],
+        fill: true,
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgb(54, 162, 235)',
+        pointBorderColor: 'white',
+      },
+      {
+        label: '3v4',
+        data: [
+          stats.three_statsArray[4] / stats.three_statsArray[8],
+          stats.three_statsArray[5] / stats.three_statsArray[8],
+          stats.three_statsArray[2] / stats.three_statsArray[8],
+          stats.three_statsArray[3] / stats.three_statsArray[8],
+          stats.three_statsArray[6] / stats.three_statsArray[8],
+          stats.three_statsArray[7] / stats.three_statsArray[8]],
+        fill: true,
+        backgroundColor: 'rgba(28, 255, 0, .2)',
+        borderColor: 'rgb(28, 255, 0)',
+        pointBorderColor: 'white',
+      },
+      {
+        label: '4v4',
+        data: [
+          stats.four_statsArray[4] / stats.four_statsArray[8],
+          stats.four_statsArray[5] / stats.four_statsArray[8],
+          stats.four_statsArray[2] / stats.four_statsArray[8],
+          stats.four_statsArray[3] / stats.four_statsArray[8],
+          stats.four_statsArray[6] / stats.four_statsArray[8],
+          stats.four_statsArray[7] / stats.four_statsArray[8]],
+        fill: true,
+        backgroundColor: 'rgba(255, 253, 0, .2)',
+        borderColor: 'rgb(255, 253, 0',
+        pointBorderColor: 'white',
+      },
+      ]
+    })
+  }
+
 
   const [info, infoShow] = useState(false)
-
   useEffect(() => {
     if (res.success === true) {
       console.log("Calling AssignData...")
@@ -107,9 +176,8 @@ function Tabs({ res }) {
   }
   const statsArray = ["wins", "losses", "kills", "deaths", "beds_broken", "beds_lost", "final_kills", "final_deaths", "games_played", "winRate", "kd", "winstreak"]
   const gamemodesArray = ["eight_one", "eight_two", "four_three", "four_four"]
-  const one_statsArray = []; const two_statsArray = []; const three_statsArray = []; const four_statsArray = []
-  const specificStatsArray = [one_statsArray, two_statsArray, three_statsArray, four_statsArray]
- 
+  const specificStatsArray = [[], [], [], []]
+
   const assignData = (res) => {
     try {
       for (let k = 0; k < specificStatsArray.length; k++) {
@@ -154,50 +222,37 @@ function Tabs({ res }) {
     } catch (e) {
       console.log(e)
     }
+    const one_statsArray = specificStatsArray[0];
+    const two_statsArray = specificStatsArray[1];
+    const three_statsArray = specificStatsArray[2];
+    const four_statsArray = specificStatsArray[3]
     assignResourceChart(res.player.stats.Bedwars)
-    assignKillTypesChart(res.player.stats.Bedwars)
+    updateKillTypesChartData(res.player.stats.Bedwars)
+
     console.log("Calling UpdateState...")
     const stats = { one_statsArray, two_statsArray, three_statsArray, four_statsArray }
-
+    updateRatiosChartData(stats)
     updateState(stats)
     infoShow(true)
   }
   const ingotsArray = ["iron", "gold", "diamond", "emerald"]
   const resourcesArray = [[], [], [], []]
-  const assignResourceChart = (bedwars) =>{
-    try{
-      for(let k=0; k<gamemodesArray.length; k++){
-        for(let i = 0; i<ingotsArray.length; i++){
-            if(bedwars[`${gamemodesArray[k]}_${ingotsArray[i]}_resources_collected_bedwars`] !==undefined){
-              resourcesArray[k][i] = bedwars[`${gamemodesArray[k]}_${ingotsArray[i]}_resources_collected_bedwars`]
-            }
-            else{
-              resourcesArray[k][i] = 0
-            }
-        }
-      }
-    }catch(e){
-      console.log(e)
-    }
-    updateResourcesChartData(resourcesArray)
-  }
-
-  const killTypes = ["entity_attack", "void", "fall"]
-  const killTypesArray = [[], [], []]
-  const assignKillTypesChart = (bedwars) =>{
+  const assignResourceChart = (bedwars) => {
     try {
-      for(let i = 0; i<killTypes.length; i++){
-        if(bedwars[`${killTypes[i]}_kills_bedwars`] !== undefined){
-          killTypesArray[i] = bedwars[`${killTypes[i]}_kills_bedwars`]
-        }
-        else{
-          killTypesArray[i] = 0
+      for (let k = 0; k < gamemodesArray.length; k++) {
+        for (let i = 0; i < ingotsArray.length; i++) {
+          if (bedwars[`${gamemodesArray[k]}_${ingotsArray[i]}_resources_collected_bedwars`] !== undefined) {
+            resourcesArray[k][i] = bedwars[`${gamemodesArray[k]}_${ingotsArray[i]}_resources_collected_bedwars`]
+          }
+          else {
+            resourcesArray[k][i] = 0
+          }
         }
       }
     } catch (e) {
       console.log(e)
     }
-    updateKillTypesChartData(killTypesArray)
+    updateResourcesChartData(resourcesArray)
   }
 
   //handles which tabs panel is currently shown
@@ -349,32 +404,57 @@ function Tabs({ res }) {
             </div>
             <div className={toggleState === 2 ? "content  active-content" : "content"}>
               <div className="stat-cards-holder">
-              
-                <div className="bar-graph-card">
-                  <h3 id="chart-header"># of Resources Collected by Gamemode</h3>
-                  <Bar 
-                  data={resourcesChartData} 
-                  options={{
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins:{
-                      title: {
-                        display: false,
-                        text: "# of Resources Collected by Gamemode"
-                      }
-                    }
-                  }}/>
+                <div className="radar-graph-card">
+                  <h3 id="chart-header">Stats per Game</h3>
+                  <Radar
+                    data={ratiosChartData}
+                    options={{
+                      scales: {
+                        r: {
+                          ticks: {
+                            showLabelBackdrop: false,
+                            font: {
+                              size: 10
+                            }
+                          },
+                          angleLines: {
+                            color: 'rgba(255, 255, 255, .3)'
+                          },
+                          grid: {
+                            color: 'rgba(255, 255, 255, .3)'
+                          }
+                        }
+                      },
+                      responsive: true,
+                      maintainAspectRatio: false
+                    }} />
                 </div>
                 <div className="bar-graph-card">
-                <h3 id="chart-header">Types of Kills by Amount</h3>
-                <Pie 
-                data={killTypesChartData}
-                options={{
-                  responsive: true,
-                  maintainAspectRatio: false
-                }}/>
-                  </div>
-                  </div>
+                  <h3 id="chart-header"># of Resources Collected by Gamemode</h3>
+                  <Bar
+                    data={resourcesChartData}
+                    options={{
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      plugins: {
+                        title: {
+                          display: false,
+                          text: "# of Resources Collected by Gamemode"
+                        }
+                      }
+                    }} />
+                </div>
+                <div className="bar-graph-card">
+                  <h3 id="chart-header">Types of Kills by Amount</h3>
+                  <Pie
+                    data={killTypesChartData}
+                    options={{
+                      responsive: true,
+                      maintainAspectRatio: false
+                    }} />
+                </div>
+
+              </div>
             </div>
           </div>
 

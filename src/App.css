@@ -364,6 +364,16 @@ h3{
   padding: 10px;
   padding-bottom: 60px;
 }
+.radar-graph-card{
+  height: 75vh;
+  width: 95%;
+  background-color: rgb(43, 43, 43);
+  text-align: center;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
+  padding-bottom: 60px;
+}
 
 #chart-header{
   font-size: 17px;
@@ -377,6 +387,9 @@ h3{
   .bar-graph-card{
     width: 90%;
   }
+  .radar-graph-card{
+    height: 50vh;
+  }
 
 }
 
@@ -387,6 +400,9 @@ h3{
     top:3px
   }
   .bar-graph-card{
+    height: 30vh;
+  }
+  .radar-graph-card{
     height: 30vh;
   }
   #chart-header{
