@@ -7,6 +7,7 @@ import OverallStats from "./OverallStats";
 import Tabs from "./Tabs";
 import Nav from "./Nav";
 import Footer from "./Footer"
+import HomeStats from "./HomeStats"
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <>
         <Nav />
         <SearchBar />
+        <HomeStats />
         <OverallStats childToParent={childToParent} />
         <Tabs res={data}/>
         <Footer />

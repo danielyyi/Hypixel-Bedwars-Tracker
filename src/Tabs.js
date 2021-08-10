@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { Bar, Pie, Doughnut, Radar, defaults } from "react-chartjs-2"
+import Footer from "./Footer"
 
 defaults.color = "white"
 defaults.font.family = 'Bungee'
@@ -346,9 +347,9 @@ function Tabs({ res }) {
   //----------------------------------------------------
   return (
     <div>
-      {info ?
+      
         <div className="container">
-
+        {info ?
           <div className="bloc-tabs">
             <button
               className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
@@ -363,7 +364,8 @@ function Tabs({ res }) {
               Graphs
             </button>
           </div>
-
+           : null}
+           {info ?
           <div className="content-tabs">
             <div className={toggleState === 1 ? "content  active-content" : "content"}>
              
@@ -488,6 +490,9 @@ function Tabs({ res }) {
                     </div>
                   </div>
                 </div>
+                <div className="coins-exp">
+                  Dream Modes Coming Soon...
+                  </div>
               </div>
             </div>
             <div className={toggleState === 2 ? "content  active-content" : "content"}>
@@ -564,9 +569,15 @@ function Tabs({ res }) {
               </div>
             </div>
           </div>
+          : null}
+        
 
+                  
+          
+       
         </div>
-        : null}
+        
+       
     </div>
   );
 }

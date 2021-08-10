@@ -34,8 +34,6 @@ h1{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
-  
 }
 
 .github-logo{
@@ -55,9 +53,15 @@ h1{
   align-self: center;
 }
 
-.emptySpace{
-  height: 2000px;
+.test{
+  background-color: #535fcf;
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 100px;
+        top: 30px;
 }
+
 nav{
   display:flex;
   justify-content: center;
@@ -148,9 +152,20 @@ nav{
   color: white;
 }
 
+.home-stat-wrapper{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 50px;
+}
 
-
-
+.home-stat-card{
+  background-color: rgb(39, 38, 38);
+  color: white;
+  padding: 10px;
+  border-radius: 25px;
+  text-align: center;
+}
 #enter:hover{
   background-color: rgb(228, 78, 78);
 }
@@ -166,6 +181,9 @@ nav{
   margin: 10px 0px 0px 0px;
   border-radius: 7px;
 }
+
+
+
 
 .infoName{
   line-height: 2em;
@@ -463,6 +481,9 @@ h3{
     height: 42px;
     width: 90px;
     top:3px
+  }
+  .home-stat-card{
+    font-size: 10px;
   }
   .coins-exp-item{
     font-size:10px
