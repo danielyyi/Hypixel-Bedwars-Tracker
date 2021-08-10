@@ -17,10 +17,11 @@ function App() {
   return (
     <Router>
       <>
-        <Nav />
+      <Nav />
         <SearchBar />
         <OverallStats childToParent={childToParent}/>
         <Tabs res={data}/>
+        
         </>
     </Router>
   );

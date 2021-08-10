@@ -5,10 +5,8 @@
 }
 
 body{
-  background-color: rgb(70, 70, 70)
-  
+  background-color: rgb(70, 70, 70);
 }
-
 h2{
   color:white;
 }
@@ -33,9 +31,13 @@ nav{
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 10vh;
+  min-height: 8vh;
   background-color: rgb(39, 38, 38);
   line-height: 27px;
+  position: -webkit-sticky; 
+    position: sticky;
+    top: 0; 
+  z-index: 999;
   
 }
 
@@ -345,6 +347,22 @@ h3{
 
 }
 
+.coins-exp-item{
+  margin: 0px 30px 0px 5px;
+  font-size: 18px;
+  word-break: keep-all;
+  
+}
+.coins-exp{
+  padding-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color:rgb(36, 36, 36);
+  width: 100%;
+  margin: 0px 2.5vw;
+  border-radius: 10px;
+}
+
 .pie-graph-card{
   width: 30%;
   height: 50vh;
@@ -362,7 +380,7 @@ h3{
   border-radius: 5px;
   margin: 5px;
   padding: 10px;
-  padding-bottom: 60px;
+  padding-bottom: 70px;
 }
 .radar-graph-card{
   height: 75vh;
@@ -372,7 +390,7 @@ h3{
   border-radius: 5px;
   margin: 5px;
   padding: 10px;
-  padding-bottom: 60px;
+  padding-bottom: 65px;
 }
 
 #chart-header{
@@ -391,6 +409,10 @@ h3{
     height: 50vh;
   }
 
+  .coins-exp-item{
+    font-size: 15px;
+  }
+
 }
 
 @media screen and (max-width: 580px) {
@@ -398,6 +420,9 @@ h3{
     height: 42px;
     width: 90px;
     top:3px
+  }
+  .coins-exp-item{
+    font-size:10px
   }
   .bar-graph-card{
     height: 30vh;
@@ -407,6 +432,9 @@ h3{
   }
   #chart-header{
     font-size: 12px;
+  }
+  .oStatBlock{
+    width: 15vh;
   }
   .stat-card{
    height: 290px;

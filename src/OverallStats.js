@@ -134,11 +134,7 @@ function OverallStats({childToParent}) {
                                 <div className="overallStat" style={{ color: 'red' }}>Losses</div>
                                 <div className="oStatValue">{state.losses}</div>
                             </div>
-                            <div className="oStatBlock">
-                                <div className="overallStat" >Win Rate</div>
-                                <div className="oStatValue">{state.winRate}</div>
-                            </div>
-
+                            
 
                             <div className="oStatBlock">
                                 <div className="overallStat" style={{ color: 'lime' }}>Kills</div>
@@ -148,10 +144,7 @@ function OverallStats({childToParent}) {
                                 <div className="overallStat" style={{ color: 'red' }}>Deaths</div>
                                 <div className="oStatValue">{state.deaths}</div>
                             </div>
-                            <div className="oStatBlock">
-                                <div className="overallStat">KD</div>
-                                <div className="oStatValue">{state.kd}</div>
-                            </div>
+                            
                             <div className="oStatBlock">
                                 <div className="overallStat" style={{ color: 'lime' }}>Beds Broken</div>
                                 <div className="oStatValue">{state.bedsBroken}</div>
@@ -167,6 +160,15 @@ function OverallStats({childToParent}) {
                             <div className="oStatBlock">
                                 <div className="overallStat" style={{ color: 'red' }}>Final Deaths</div>
                                 <div className="oStatValue">{state.finalDeaths}</div>
+                            </div>
+                            <div className="oStatBlock">
+                                <div className="overallStat" >Win Rate</div>
+                                <div className="oStatValue">{state.winRate}</div>
+                            </div>
+
+                            <div className="oStatBlock">
+                                <div className="overallStat">KD</div>
+                                <div className="oStatValue">{state.kd}</div>
                             </div>
                             <div className="oStatBlock">
                                 <div className="overallStat">Games Played</div>

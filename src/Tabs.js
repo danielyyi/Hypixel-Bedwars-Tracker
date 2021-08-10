@@ -7,14 +7,20 @@ defaults.font.family = 'Bungee'
 defaults.plugins.tooltip.intersect =true
 
 function Tabs({ res }) {
+  useEffect(() => {
+    if (res.success === true) {
+      console.log("Calling AssignData...")
+      assignData(res)
+    }
+  }, [res])
+
+//compiles data for "# of resources by gamemode" chart
   const [resourcesChartData, setResourcesChartData] = useState({})
   const updateResourcesChartData = (resourcesArray) => {
     setResourcesChartData({
       labels: ['1x8', '2x8', '3x4', '4x4'],
-
       datasets: [
         {
-
           label: "Iron",
           backgroundColor: "gray",
           data: [
@@ -54,12 +60,12 @@ function Tabs({ res }) {
     }
     )
   }
-
+//compiles data for "types of kills" chart
   const [killTypesChartData, setKillTypesChartData] = useState({})
   const updateKillTypesChartData = (bedwars) => {
     setKillTypesChartData({
       labels: [
-        'Entity Attack',
+        'Player Attack',
         'Void',
         'Fall',
       ],
@@ -70,19 +76,43 @@ function Tabs({ res }) {
           bedwars.fall_kills_bedwars,
         ],
         backgroundColor: [
-          'red',
-          'lime',
-          'blue',
+          'rgb(231, 29, 54)',
+          'rgb(148, 75, 187)',
+          '#065143',
         ],
         hoverOffset: 4
       }]
 
     })
   }
+  const [deathTypesChartData, setDeathTypesChartData] = useState({})
+  const updateDeathTypesChartData = (bedwars) => {
+    setDeathTypesChartData({
+      labels: [
+        'Player Attack',
+        'Void',
+        'Fall',
+      ],
+      datasets: [{
+        data: [
+          bedwars.entity_attack_deaths_bedwars,
+          bedwars.void_deaths_bedwars,
+          bedwars.fall_deaths_bedwars,
+        ],
+        backgroundColor: [
+          'rgb(231, 29, 54)',
+          'rgb(148, 75, 187)',
+          '#065143',
+        ],
+        hoverOffset: 4
+      }]
 
-  const [ratiosChartData, setRatiosChartData] = useState({})
-  const updateRatiosChartData = (stats) => {
-    setRatiosChartData({
+    })
+  }
+//compiles data for "stats per gamemode" chart
+  const [statsPerGameChartData, setStatsPerGameChartData] = useState({})
+  const updateStatsPerGameChartData = (stats) => {
+    setStatsPerGameChartData({
       labels: [
         'Beds Broken',
         'Beds Lost',
@@ -150,14 +180,60 @@ function Tabs({ res }) {
     })
   }
 
-
-  const [info, infoShow] = useState(false)
-  useEffect(() => {
-    if (res.success === true) {
-      console.log("Calling AssignData...")
-      assignData(res)
+  const [ratiosChartData, setRatiosChartData] = useState({})
+  const updateRatiosChartData = (stats) =>{
+    setRatiosChartData({
+      labels: ['1v8', '2v8', '3v4', '4v4'],
+      datasets: [
+        {
+          label:'Kill/Death Ratio',
+          backgroundColor: "#e71d36",
+          data: [
+            stats.one_statsArray[10],
+            stats.two_statsArray[10],
+            stats.three_statsArray[10],
+            stats.four_statsArray[10],
+          ],
+        },
+        {
+          label: 'Beds Broken/Beds Lost Ratio',
+          backgroundColor: "#2ec4b6",
+          data: [
+            stats.one_statsArray[5]/stats.one_statsArray[6],
+            stats.two_statsArray[5]/stats.two_statsArray[6],
+            stats.three_statsArray[5]/stats.three_statsArray[6],
+            stats.four_statsArray[5]/stats.four_statsArray[6],
+          ],
+        },
+        {
+          label: 'Win Rate',
+          backgroundColor: "#ff9f1c",
+          data: [
+            stats.one_statsArray[9],
+            stats.two_statsArray[9],
+            stats.three_statsArray[9],
+            stats.four_statsArray[9],
+          ],
+        },
+      ]
     }
-  }, [res])
+
+    )
+  }
+
+  const [coinsState, setCoinsState] = useState({
+    coins: 0,
+    experience: 0,
+  })
+  const updateCoinsState = (coins, xp) =>{
+    setCoinsState({
+      coins: coins,
+      experience: xp
+    })
+  }
+//used to toggle things from hidden to shown
+  const [info, infoShow] = useState(false)
+//compiles data for the 1v8, 2v8, 3v4, 4v4 player cards
   const [state, setState] = useState({
     One: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     Two: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -174,6 +250,7 @@ function Tabs({ res }) {
       Four: stats.four_statsArray
     }, [])
   }
+
   const statsArray = ["wins", "losses", "kills", "deaths", "beds_broken", "beds_lost", "final_kills", "final_deaths", "games_played", "winRate", "kd", "winstreak"]
   const gamemodesArray = ["eight_one", "eight_two", "four_three", "four_four"]
   const specificStatsArray = [[], [], [], []]
@@ -222,16 +299,22 @@ function Tabs({ res }) {
     } catch (e) {
       console.log(e)
     }
+    const experience = res.player.stats.Bedwars.Experience
+    const coins = res.player.stats.Bedwars.coins
+    updateCoinsState(coins, experience)
     const one_statsArray = specificStatsArray[0];
     const two_statsArray = specificStatsArray[1];
     const three_statsArray = specificStatsArray[2];
     const four_statsArray = specificStatsArray[3]
-    assignResourceChart(res.player.stats.Bedwars)
+    
     updateKillTypesChartData(res.player.stats.Bedwars)
-
+    updateDeathTypesChartData(res.player.stats.Bedwars)
+   
     console.log("Calling UpdateState...")
     const stats = { one_statsArray, two_statsArray, three_statsArray, four_statsArray }
+    assignResourceChart(res.player.stats.Bedwars)
     updateRatiosChartData(stats)
+    updateStatsPerGameChartData(stats)
     updateState(stats)
     infoShow(true)
   }
@@ -283,7 +366,12 @@ function Tabs({ res }) {
 
           <div className="content-tabs">
             <div className={toggleState === 1 ? "content  active-content" : "content"}>
+             
               <div className="stat-cards-holder">
+              <div className="coins-exp">
+              <div className="coins-exp-item">Coins: {coinsState.coins}</div>
+              <div className="coins-exp-item">Experience: {coinsState.experience}</div>
+              </div>
                 <div className="stat-card">
                   <h3>1v8</h3>
                   <div className="stat-card-info">
@@ -407,7 +495,7 @@ function Tabs({ res }) {
                 <div className="radar-graph-card">
                   <h3 id="chart-header">Stats per Game</h3>
                   <Radar
-                    data={ratiosChartData}
+                    data={statsPerGameChartData}
                     options={{
                       scales: {
                         r: {
@@ -429,6 +517,7 @@ function Tabs({ res }) {
                       maintainAspectRatio: false
                     }} />
                 </div>
+               
                 <div className="bar-graph-card">
                   <h3 id="chart-header"># of Resources Collected by Gamemode</h3>
                   <Bar
@@ -445,6 +534,16 @@ function Tabs({ res }) {
                     }} />
                 </div>
                 <div className="bar-graph-card">
+                  <h3 id="chart-header">K/D, BB/BL, and Win Rate by Gamemode</h3>
+                  <Bar
+                    data={ratiosChartData}
+                    options={{
+                      responsive: true,
+                      maintainAspectRatio: false,
+                    }} />
+                </div>
+
+                <div className="bar-graph-card">
                   <h3 id="chart-header">Types of Kills by Amount</h3>
                   <Pie
                     data={killTypesChartData}
@@ -453,7 +552,15 @@ function Tabs({ res }) {
                       maintainAspectRatio: false
                     }} />
                 </div>
-
+                <div className="bar-graph-card">
+                  <h3 id="chart-header">Types of Deaths by Amount</h3>
+                  <Pie
+                    data={deathTypesChartData}
+                    options={{
+                      responsive: true,
+                      maintainAspectRatio: false
+                    }} />
+                </div>
               </div>
             </div>
           </div>
