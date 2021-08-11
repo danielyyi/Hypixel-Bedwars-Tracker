@@ -19,7 +19,7 @@ function Footer() {
     <div>
       <div style={emptyStyle}></div>
       <div className="footer">
-        <div className="footer-contact">Contact: daniel.youngsun@gmail.com</div>
+        <div className="footer-contact">Not affiliated with Hypixel</div>
         <a
           className="footer-contact"
           href="https://github.com/danielyyi/Hypixel-Bedwars-Tracker"
