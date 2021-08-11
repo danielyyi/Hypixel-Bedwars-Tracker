@@ -6,17 +6,15 @@ import SearchBar from "./SearchBar";
 import OverallStats from "./OverallStats";
 import Tabs from "./Tabs";
 import Nav from "./Nav";
-import Footer from "./Footer"
-import HomeStats from "./HomeStats"
+import Footer from "./Footer";
+import HomeStats from "./HomeStats";
 
 function App() {
-
-
   const [data, setData] = useState({ empty: true });
 
   const childToParent = (childdata) => {
     setData(childdata);
-  }
+  };
 
   return (
     <Router>
@@ -25,7 +23,7 @@ function App() {
         <SearchBar />
         <HomeStats />
         <OverallStats childToParent={childToParent} />
-        <Tabs res={data}/>
+        <Tabs res={data} />
         <Footer />
       </>
     </Router>

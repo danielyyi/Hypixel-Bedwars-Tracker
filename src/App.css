@@ -1,33 +1,29 @@
-*{
-  font-family: 'Bungee', cursive;
+* {
+  font-family: "Bungee", cursive;
   margin: 0;
-  padding: 0; 
+  padding: 0;
 }
 
-body{
+body {
   background-color: rgb(70, 70, 70);
 }
-h2{
-  color:white;
+h2 {
+  color: white;
 }
 
-
-#SearchForm{
-  position:relative;
+#SearchForm {
+  position: relative;
   align-self: center;
 }
 
-
-
-h1{
-  display:flex;
+h1 {
+  display: flex;
   justify-content: center;
-  color:white;
- 
+  color: white;
 }
 
-.footer{
-  font-family: 'Roboto';
+.footer {
+  font-family: "Roboto";
   background-color: rgb(39, 38, 38);
   color: white;
   height: 200px;
@@ -36,171 +32,156 @@ h1{
   justify-content: center;
 }
 
-.github-logo{
+.github-logo {
   height: 100px;
   width: 100px;
   position: relative;
   align-self: center;
 }
-.footer-copyright{
-  font-family: 'Georama', sans-serif;
+.footer-copyright {
+  font-family: "Georama", sans-serif;
   position: relative;
   align-self: center;
 }
-.footer-contact{
-  font-family: 'Georama', sans-serif;
+.footer-contact {
+  font-family: "Georama", sans-serif;
   position: relative;
   align-self: center;
 }
 
-.test{
-  background-color: #535fcf;
-        position: absolute;
-        left: 0;
-        right: 0;
-        height: 100px;
-        top: 30px;
-}
-
-nav{
-  display:flex;
+nav {
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   min-height: 8vh;
   background-color: rgb(39, 38, 38);
   line-height: 27px;
-  position: -webkit-sticky; 
-    position: sticky;
-    top: 0; 
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   z-index: 999;
-  
+  box-shadow: 10px 10px 5px rgb(31, 31, 31, 0.15);
 }
 
-.logo{
+.logo {
   text-transform: uppercase;
   letter-spacing: 4px;
   font-size: 22px;
 }
 
-.player-head{
-  width:40px;
+.player-head {
+  width: 40px;
   height: 40px;
 }
 
-.player-head-wrapper{
+.player-head-wrapper {
   display: flex;
   justify-content: center;
-  margin:10px
+  margin: 10px;
 }
 
-.box{
-
+.box {
   position: relative;
-  top:30px;
+  top: 30px;
   display: flex;
   justify-content: center;
   max-height: 100vh;
   align-self: center;
 }
 
-.box h2{
+.box h2 {
   color: white;
   font-size: 30px;
   font-weight: 500;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.box{
+.box {
   min-width: 300px;
   max-height: 100px;
 }
 
-.box h2{
+.box h2 {
   color: white;
   font-size: 30px;
   font-weight: 500;
   display: flex;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
 
-
-
-.box input[type="text"]{
-  background:white;
-  width:340px;
+.box input[type="text"] {
+  background: white;
+  width: 340px;
   height: 50px;
-  border:none;
-  outline:none;
+  border: none;
+  outline: none;
   padding: 0 25px;
   font-size: 18px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-#enter{
+#enter {
+  top: 1px;
   font-size: 18px;
   position: relative;
   width: 100px;
   height: 50px;
-  border:none;
-  outline:none;
+  border: none;
+  outline: none;
   cursor: pointer;
   background-color: rgb(22, 136, 22);
   color: white;
 }
 
-.home-stat-wrapper{
+.home-stat-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
   top: 50px;
 }
 
-.home-stat-card{
+.home-stat-card {
   background-color: rgb(39, 38, 38);
   color: white;
   padding: 10px;
   border-radius: 25px;
   text-align: center;
 }
-#enter:hover{
+#enter:hover {
   background-color: rgb(228, 78, 78);
 }
 
-.infoWrapper{
+.infoWrapper {
   position: relative;
-  top:35px;
+  top: 35px;
   align-self: center;
   display: flex;
-  align-items:center;
+  align-items: center;
   text-align: center;
   justify-content: center;
   margin: 10px 0px 0px 0px;
   border-radius: 7px;
 }
 
-
-
-
-.infoName{
+.infoName {
   line-height: 2em;
   font-size: 30px;
   background-color: rgb(39, 38, 38);
-  color:white;
+  color: white;
   min-width: 80%;
   max-width: 80%;
   max-height: none;
   display: flex;
-  justify-content:center;
+  justify-content: center;
   align-content: center;
   border-radius: 3px;
 }
 
-
-.infoOverallStats{
+.infoOverallStats {
   line-height: 2em;
   font-size: 30px;
   background-color: rgb(51, 51, 51);
@@ -211,36 +192,30 @@ nav{
   justify-content: space-around;
   border-radius: 3px;
   flex-wrap: wrap;
- 
 }
 
-
-
-.h3{
+.h3 {
   font-size: 40;
   text-decoration: underline;
 }
 
-.overallStat{
+.overallStat {
   font-size: 12px;
   height: 20px;
   color: rgb(219, 219, 219);
   margin-top: 0px;
 }
 
-.oStatValue{
+.oStatValue {
   font-size: 25px;
   color: white;
 }
 
-
-.oStatBlock{
+.oStatBlock {
   margin: 0px 10px 0px 10px;
-  
 }
 
-
-.tabContainer{
+.tabContainer {
   width: 80%;
   height: 350px;
   text-align: center;
@@ -248,29 +223,28 @@ nav{
   color: white;
 }
 
-.tabContainer .buttonContainer{
-  height:15%;
-  background-color: rgb(70, 70, 70)
-  
+.tabContainer .buttonContainer {
+  height: 15%;
+  background-color: rgb(70, 70, 70);
 }
 
-.tabContainer .buttonContainer button{
+.tabContainer .buttonContainer button {
   width: 25%;
-  height:100%;
+  height: 100%;
   float: left;
-  border:none;
+  border: none;
   outline: none;
-  padding:10px;
+  padding: 10px;
   font-size: 18px;
   background-color: rgb(58, 58, 58);
   color: white;
 }
 
-.tabContainer .buttonContainer button:hover{
-  background-color:   rgb(63, 62, 62);
+.tabContainer .buttonContainer button:hover {
+  background-color: rgb(63, 62, 62);
 }
 
-.tabContainer .tabPanel{
+.tabContainer .tabPanel {
   height: 900px;
   font-size: 22px;
   background-color: rgb(58, 58, 58);
@@ -279,7 +253,7 @@ nav{
   display: flex;
 }
 
-.error-text{
+.error-text {
   color: rgb(255, 0, 0);
   word-spacing: 2px;
   line-height: 20px;
@@ -294,14 +268,12 @@ nav{
   height: 300px;
   margin: 100px auto 0;
   word-break: break-all;
-
 }
 
 .bloc-tabs {
   display: flex;
 }
 .tabs {
-
   padding: 15px;
   text-align: center;
   width: 90%;
@@ -314,7 +286,7 @@ nav{
   color: white;
 }
 
-.active-tabs  {
+.active-tabs {
   background: rgb(51, 51, 51);
 }
 
@@ -330,11 +302,8 @@ nav{
   background: rgb(0, 230, 0);
 }
 
-
-
 button {
   border: none;
-  
 }
 
 .content {
@@ -358,13 +327,13 @@ button {
   color: white;
 }
 
-.stat-cards-holder{
+.stat-cards-holder {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-.stat-card{
+.stat-card {
   background-color: rgb(43, 43, 43);
   width: 45%;
   height: 350px;
@@ -373,56 +342,67 @@ button {
   margin: 13px 0px;
 }
 
-.stat-card-info{
+.stat-card-info {
   display: flex;
   justify-content: space-evenly;
   margin: 8px 0px;
 }
 
-.stat-card-ul{
+.stat-card-ul {
   list-style: none;
 }
 
-.stat-card-header{
+.stat-card-header {
   font-size: 12px;
 }
-.stat-card-value{
+.stat-card-value {
   margin: -30px 0px -8px 0px;
   font-size: 30px;
 }
 
-h3{
+h3 {
   background-color: rgb(36, 36, 36);
   padding: 2px;
-
 }
 
-.coins-exp-item{
+.coins-exp-item {
   margin: 0px 30px 0px 5px;
   font-size: 18px;
   word-break: keep-all;
   
 }
-.coins-exp{
+
+.coming-soon {
+  margin: 20px 30px 0px 5px;
+  font-size: 18px;
+  position: relative;
+  word-break: keep-all;
+  align-self: center;
+  justify-content: center;
+  background-color: rgb(36, 36, 36);
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+.coins-exp {
   padding-left: 10px;
   display: flex;
   flex-wrap: wrap;
-  background-color:rgb(36, 36, 36);
+  background-color: rgb(36, 36, 36);
   width: 100%;
   margin: 0px 2.5vw;
   border-radius: 10px;
 }
 
-.pie-graph-card{
+.pie-graph-card {
   width: 30%;
   height: 50vh;
   background-color: rgb(43, 43, 43);
   text-align: center;
   border-radius: 5px;
   margin: 5px;
-  padding: 10px
+  padding: 10px;
 }
-.bar-graph-card{
+.bar-graph-card {
   height: 50vh;
   width: 45%;
   background-color: rgb(43, 43, 43);
@@ -432,7 +412,7 @@ h3{
   padding: 10px;
   padding-bottom: 70px;
 }
-.radar-graph-card{
+.radar-graph-card {
   height: 75vh;
   width: 95%;
   background-color: rgb(43, 43, 43);
@@ -443,116 +423,108 @@ h3{
   padding-bottom: 65px;
 }
 
-#chart-header{
+#chart-header {
   font-size: 17px;
   word-break: keep-all;
 }
 
 @media screen and (max-width: 1025px) {
-
-  .oStatBlock{
+  .oStatBlock {
     margin: 0px 11px 0px 11px;
   }
-  .bar-graph-card{
-    padding-bottom:100px
+  .bar-graph-card {
+    padding-bottom: 100px;
   }
-
 }
 @media screen and (max-width: 1000px) {
-  .stat-card{
+  .stat-card {
     width: 90%;
   }
-  .bar-graph-card{
+  .bar-graph-card {
     width: 90%;
   }
-  .radar-graph-card{
+  .radar-graph-card {
     height: 50vh;
   }
 
-  .coins-exp-item{
+  .coins-exp-item {
     font-size: 15px;
   }
 
+  
+.coming-soon {
+  font-size: 12px;
+}
 }
 
-
 @media screen and (max-width: 580px) {
-  #enter{
+  #enter {
     height: 42px;
     width: 90px;
-    top:3px
+    top: 3px;
   }
-  .home-stat-card{
+  .home-stat-card {
     font-size: 10px;
   }
-  .coins-exp-item{
-    font-size:10px
+  .coins-exp-item {
+    font-size: 10px;
   }
-  .bar-graph-card{
+  .bar-graph-card {
     height: 30vh;
   }
-  .radar-graph-card{
+  .radar-graph-card {
     height: 30vh;
   }
-  #chart-header{
+  #chart-header {
     font-size: 12px;
   }
-  .oStatBlock{
+  .oStatBlock {
     width: 12vh;
   }
-  .stat-card{
-   height: 290px;
+  .stat-card {
+    height: 290px;
   }
   .box input[type="text"] {
     width: 150px;
     height: 40px;
   }
-  .infoName{
+  .infoName {
     font-size: 20px;
   }
-  .stat-card-header{
+  .stat-card-header {
     font-size: 9px;
   }
-  .stat-card-value{
+  .stat-card-value {
     margin: -17px 0px 0px 0px;
     font-size: 19px;
   }
 
-  .logo{
+  .logo {
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 15px;
   }
 
-  .overallStat{
+  .overallStat {
     font-size: 10px;
     height: 27px;
     color: rgb(219, 219, 219);
   }
-  .oStatValue{
+  .oStatValue {
     margin: -7px 0px;
     font-size: 20px;
     color: white;
   }
 
-  .oStatBlock{
+  .oStatBlock {
     margin-bottom: -20px;
   }
 
-  .infoOverallStats{
+  .infoOverallStats {
     padding-bottom: 30px;
   }
 
-  .error-text{
+  .error-text {
     font-size: 12px;
   }
-  
-  
-  
 }
-
-
-
-
-
-
