@@ -38,7 +38,6 @@ function HomeStats() {
     try {
       const rawRes = await fetch(`https://api.hypixel.net/counts?key=${key}`);
       const count = await rawRes.json();
-      console.log(count);
       updateState(count);
       infoShow(true);
     } catch (error) {

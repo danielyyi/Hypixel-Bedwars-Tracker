@@ -62,19 +62,16 @@ function OverallStats({ childToParent }) {
   async function ConnectMojang(profile) {
     try {
       const rawRes = await fetch(
-        `https://api.mojang.com/users/profiles/minecraft/${profile}`,
-        {
-          mode: "no-cors",
-          method: "get",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+        `https://playerdb.co/api/player/minecraft/${profile}`
       );
-      console.log(rawRes)
       const res = await rawRes.json();
-      
-      console.log(res);
+      if(res.data.player == undefined){
+        invalidNameShow(true);
+      }
+      else{
+        ConnectAPI(res.data.player.raw_id);
+      }
+
     } catch (e) {
       console.log(e);
     }
@@ -83,10 +80,9 @@ function OverallStats({ childToParent }) {
   async function ConnectAPI(profile) {
     try {
       const rawRes = await fetch(
-        `https://api.hypixel.net/player?key=${key}&name=${profile}`
+        `https://api.hypixel.net/player?key=${key}&uuid=${profile}`
       );
       const res = await rawRes.json();
-      console.log(res);
       if (res.success === true && res.player == null) {
         invalidNameShow(true);
       } else if (
@@ -164,8 +160,7 @@ function OverallStats({ childToParent }) {
           ) : null}
           {frequentName ? (
             <div className="error-text">
-              You have already looked up this name recently. Wait 1 minute
-              before searching it again.
+              Please wait a bit before searching another name.
             </div>
           ) : null}
         </div>
