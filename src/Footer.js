@@ -15,6 +15,7 @@ function Footer() {
   const emptyStyle = {
     height: emptySpace,
   };
+  
   return (
     <div>
       <div style={emptyStyle}></div>
