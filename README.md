@@ -1,5 +1,7 @@
 # Hypixel Bedwars Stat Tracker Website
 
+heres the Netlify link: https://bedwarstats.netlify.app
+
 A website where Hypixel Bedwars players can view their stats through gamemode specific cards and informational graphs. Made with React.js, Chart.js, HTML, and CSS.
 
 As of now, my API key and the Hypixel API only allows 1 of the same Minecraft account search per minute. This is super annoying as if someone refreshes my website's page when theyre viewing a profile, the API will send the data again for another minute. I dont want to learn databases for this project but I know that could be an option. I could also use multiple API keys but that is against the Hypixel API policies. 
