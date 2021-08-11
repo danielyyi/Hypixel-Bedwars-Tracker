@@ -10,7 +10,6 @@ defaults.plugins.tooltip.intersect = true;
 function Tabs({ res }) {
   useEffect(() => {
     if (res.success === true) {
-      console.log("Calling AssignData...");
       assignData(res);
     }
   }, [res]);
@@ -238,7 +237,6 @@ function Tabs({ res }) {
     []
   );
   function updateState(stats) {
-    console.log("Updating State...");
     setState(
       {
         ...state,
@@ -354,8 +352,6 @@ function Tabs({ res }) {
 
     updateKillTypesChartData(res.player.stats.Bedwars);
     updateDeathTypesChartData(res.player.stats.Bedwars);
-
-    console.log("Calling UpdateState...");
     const stats = {
       one_statsArray,
       two_statsArray,

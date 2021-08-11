@@ -350,6 +350,7 @@ button {
 
 .stat-card-ul {
   list-style: none;
+  line-height: 52px;
 }
 
 .stat-card-header {
@@ -461,7 +462,9 @@ h3 {
   #enter {
     height: 42px;
     width: 90px;
-    top: 3px;
+  }
+  .stat-card-ul {
+    line-height: 46px;
   }
   .home-stat-card {
     font-size: 10px;
@@ -495,7 +498,6 @@ h3 {
     font-size: 9px;
   }
   .stat-card-value {
-    margin: -17px 0px 0px 0px;
     font-size: 19px;
   }
 
