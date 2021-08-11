@@ -188,11 +188,18 @@ nav {
   width: 80%;
   min-height: 90px;
   max-height: none;
-  display: flex;
+  display: inline-block;
   justify-content: space-around;
   border-radius: 3px;
   flex-wrap: wrap;
 }
+
+.overall-ul li{
+  display: inline-block;
+  margin: 0px 15px;
+} 
+
+
 
 .h3 {
   font-size: 40;
@@ -451,6 +458,11 @@ h3 {
   .coins-exp-item {
     font-size: 15px;
   }
+
+  .overall-ul li{
+   
+    margin: 0px 10px;
+  } 
 
   
 .coming-soon {

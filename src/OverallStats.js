@@ -166,70 +166,72 @@ function OverallStats({ childToParent }) {
           </div>
           <div className="infoWrapper" id="infoWrapper">
             <div className="infoOverallStats" id="infoOverallStats">
-              <div className="oStatBlock">
+              <ul className = "overall-ul">
+                <li>
                 <div className="overallStat" style={{ color: "lime" }}>
                   Wins
                 </div>
                 <div className="oStatValue" id="wins">
                   {state.wins}
                 </div>
-              </div>
-              <div className="oStatBlock">
+                </li>
+              <li>
                 <div className="overallStat" style={{ color: "red" }}>
                   Losses
                 </div>
                 <div className="oStatValue">{state.losses}</div>
-              </div>
-
-              <div className="oStatBlock">
+             
+                </li>
+             <li>
                 <div className="overallStat" style={{ color: "lime" }}>
                   Kills
                 </div>
                 <div className="oStatValue">{state.kills}</div>
-              </div>
-              <div className="oStatBlock">
+                </li>
+             <li>
                 <div className="overallStat" style={{ color: "red" }}>
                   Deaths
                 </div>
                 <div className="oStatValue">{state.deaths}</div>
-              </div>
-
-              <div className="oStatBlock">
+                </li>
+<li> 
                 <div className="overallStat" style={{ color: "lime" }}>
                   Beds Broken
                 </div>
                 <div className="oStatValue">{state.bedsBroken}</div>
-              </div>
-              <div className="oStatBlock">
+                </li>
+             <li>
+              
                 <div className="overallStat" style={{ color: "red" }}>
                   Beds Lost
                 </div>
                 <div className="oStatValue">{state.bedsLost}</div>
-              </div>
-              <div className="oStatBlock">
+                </li>
+             <li>
                 <div className="overallStat" style={{ color: "lime" }}>
                   Final Kills
                 </div>
                 <div className="oStatValue">{state.finalKills}</div>
-              </div>
-              <div className="oStatBlock">
+                </li>
+              <li>
                 <div className="overallStat" style={{ color: "red" }}>
                   Final Deaths
                 </div>
                 <div className="oStatValue">{state.finalDeaths}</div>
-              </div>
-              <div className="oStatBlock">
+                </li>
+                <li>
                 <div className="overallStat">Win Rate</div>
                 <div className="oStatValue">{state.winRate}</div>
-              </div>
-              <div className="oStatBlock">
+                </li>
+             <li>
                 <div className="overallStat">KD</div>
                 <div className="oStatValue">{state.kd}</div>
-              </div>
-              <div className="oStatBlock">
+                </li>
+             <li>
                 <div className="overallStat">Games Played</div>
                 <div className="oStatValue">{state.gamesPlayed}</div>
-              </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
