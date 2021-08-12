@@ -68,7 +68,7 @@ nav {
 
 .logo {
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   font-size: 22px;
 }
 
@@ -518,7 +518,7 @@ h3 {
     width: 12vh;
   }
   .stat-card {
-    height: 290px;
+    height: 245px;
   }
   .box input[type="text"] {
     width: 150px;
@@ -529,9 +529,11 @@ h3 {
   }
   .stat-card-header {
     font-size: 9px;
+
   }
   .stat-card-value {
     font-size: 19px;
+    margin-bottom: -15px;
   }
 
   .logo {

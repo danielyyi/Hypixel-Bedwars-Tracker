@@ -4,7 +4,7 @@ import { Bar, Pie, Radar, defaults } from "react-chartjs-2";
 
 defaults.color = "white";
 
-defaults.font.size = 15
+defaults.font.size = 12
 defaults.plugins.tooltip.intersect = true;
 
 
@@ -205,10 +205,10 @@ function Tabs({ res }) {
           label: "Win Rate (%)",
           backgroundColor: "#ff9f1c",
           data: [
-            stats.one_statsArray[9] * 100,
-            stats.two_statsArray[9] *100,
-            stats.three_statsArray[9] *100,
-            stats.four_statsArray[9] *100,
+            stats.one_statsArray[9] ,
+            stats.two_statsArray[9] ,
+            stats.three_statsArray[9] ,
+            stats.four_statsArray[9] ,
           ],
         },
       ],
