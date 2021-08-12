@@ -3,7 +3,7 @@ import "./App.css";
 import { Bar, Pie, Radar, defaults } from "react-chartjs-2";
 
 defaults.color = "white";
-defaults.font.family = "Open Sans";
+
 defaults.font.size = 15
 defaults.font.weight =500
 defaults.plugins.tooltip.intersect = true;
