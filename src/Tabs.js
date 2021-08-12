@@ -262,7 +262,7 @@ function Tabs({ res }) {
     "games_played",
     "winRate",
     "kd",
-    "winstreak",
+    "fkdr",
   ];
   const gamemodesArray = ["eight_one", "eight_two", "four_three", "four_four"];
   const specificStatsArray = [[], [], [], []];
@@ -311,20 +311,26 @@ function Tabs({ res }) {
             } else {
               currentGamemode[i] = 0;
             }
-          } else if (i === 11) {
+          } 
+           else if (i === 11) {
             if (
               res.player.stats.Bedwars[
-                `${gamemodesArray[k]}_${statsArray[i]}`
+                `${gamemodesArray[k]}_${statsArray[6]}_bedwars`
               ] !== undefined
             ) {
               currentGamemode[i] =
-                res.player.stats.Bedwars[
-                  `${gamemodesArray[k]}_${statsArray[i]}`
-                ];
+                Math.round(
+                  (100 *
+                    res.player.stats.Bedwars[
+                      `${gamemodesArray[k]}_${statsArray[6]}_bedwars`
+                    ]) /
+                    res.player.stats.Bedwars[
+                      `${gamemodesArray[k]}_${statsArray[7]}_bedwars`
+                    ]
+                ) / 100;
             } else {
               currentGamemode[i] = 0;
-            }
-          } else {
+            }}else {
             if (
               res.player.stats.Bedwars[
                 `${gamemodesArray[k]}_${statsArray[i]}_bedwars`
@@ -353,6 +359,7 @@ function Tabs({ res }) {
 
     updateKillTypesChartData(res.player.stats.Bedwars);
     updateDeathTypesChartData(res.player.stats.Bedwars);
+    console.log(two_statsArray)
     const stats = {
       one_statsArray,
       two_statsArray,
@@ -530,13 +537,14 @@ function Tabs({ res }) {
                           <div className="stat-card-value">{state.One[10]}</div>
                         </li>
                         <li>
+                          <div className="stat-card-header">FKFD</div>
+                          <div className="stat-card-value">{state.One[11]}</div>
+                        </li>
+                        <li>
                           <div className="stat-card-header">Games Played</div>
                           <div className="stat-card-value">{state.One[8]}</div>
                         </li>
-                        <li>
-                          <div className="stat-card-header">Winstreak</div>
-                          <div className="stat-card-value">{state.One[11]}</div>
-                        </li>
+                        
                       </ul>
                     </div>
                   </div>
@@ -635,13 +643,14 @@ function Tabs({ res }) {
                           <div className="stat-card-value">{state.Two[10]}</div>
                         </li>
                         <li>
+                          <div className="stat-card-header">FKFD</div>
+                          <div className="stat-card-value">{state.Two[11]}</div>
+                        </li>
+                        <li>
                           <div className="stat-card-header">Games Played</div>
                           <div className="stat-card-value">{state.Two[8]}</div>
                         </li>
-                        <li>
-                          <div className="stat-card-header">Winstreak</div>
-                          <div className="stat-card-value">{state.Two[11]}</div>
-                        </li>
+                        
                       </ul>
                     </div>
                   </div>
@@ -760,17 +769,18 @@ function Tabs({ res }) {
                           </div>
                         </li>
                         <li>
+                          <div className="stat-card-header">FKFD</div>
+                          <div className="stat-card-value">
+                            {state.Three[11]}
+                          </div>
+                        </li>
+                        <li>
                           <div className="stat-card-header">Games Played</div>
                           <div className="stat-card-value">
                             {state.Three[8]}
                           </div>
                         </li>
-                        <li>
-                          <div className="stat-card-header">Winstreak</div>
-                          <div className="stat-card-value">
-                            {state.Three[11]}
-                          </div>
-                        </li>
+                       
                       </ul>
                     </div>
                   </div>
@@ -871,15 +881,17 @@ function Tabs({ res }) {
                           </div>
                         </li>
                         <li>
-                          <div className="stat-card-header">Games Played</div>
-                          <div className="stat-card-value">{state.Four[8]}</div>
-                        </li>
-                        <li>
-                          <div className="stat-card-header">Winstreak</div>
+                          <div className="stat-card-header">FKDR</div>
                           <div className="stat-card-value">
                             {state.Four[11]}
                           </div>
                         </li>
+                        <li>
+                          <div className="stat-card-header">Games Played</div>
+                          <div className="stat-card-value">{state.Four[8]}</div>
+                        </li>
+                        
+                        
                       </ul>
                     </div>
                   </div>

@@ -168,14 +168,13 @@ nav {
   font-size: 30px;
   background-color: rgb(39, 38, 38);
   color: white;
-  min-width: 80%;
-  max-width: 80%;
+  width: 80%;
   max-height: none;
   display: flex;
   justify-content: center;
   align-content: center;
   border-radius: 3px;
-  padding: 2px 6px 6px 6px
+  padding: 3px 0px 6px 0px
 }
 
 .infoOverallStats {

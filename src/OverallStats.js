@@ -34,6 +34,9 @@ function OverallStats({ childToParent }) {
       gamesPlayed: 0,
       displayName: "",
       uuid: "",
+      finalKills: 0,
+      finalDeaths: 0,
+      fkfd: 0
     },
     []
   );
@@ -55,6 +58,7 @@ function OverallStats({ childToParent }) {
         uuid: stats.uuid,
         finalKills: stats.finalKills,
         finalDeaths: stats.finalDeaths,
+        fkfd: stats.fkfd
       },
       []
     );
@@ -127,7 +131,7 @@ function OverallStats({ childToParent }) {
     const uuid = res.player.uuid;
     const finalKills = res.player.stats.Bedwars.final_kills_bedwars;
     const finalDeaths = res.player.stats.Bedwars.final_deaths_bedwars;
-
+    const fkfd = Math.round(100* (res.player.stats.Bedwars.final_kills_bedwars/res.player.stats.Bedwars.final_deaths_bedwars))/100
     const stats = {
       wins,
       losses,
@@ -142,6 +146,7 @@ function OverallStats({ childToParent }) {
       uuid,
       finalKills,
       finalDeaths,
+      fkfd,
     };
     updateState(stats);
   }
@@ -242,6 +247,10 @@ function OverallStats({ childToParent }) {
                 <li>
                   <div className="overallStat">KD</div>
                   <div className="oStatValue">{state.kd}</div>
+                </li>
+                <li>
+                  <div className="overallStat">FKFD</div>
+                  <div className="oStatValue">{state.fkfd}</div>
                 </li>
                 <li>
                   <div className="overallStat">Games Played</div>
