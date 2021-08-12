@@ -167,16 +167,19 @@ function OverallStats({ childToParent }) {
       </div>
       {info ? (
         <div id="infoVisible">
-          <div className="infoWrapper" id="infoWrapper">
-            <div className="infoName" id="infoName">
-              <div className="player-head-wrapper">
-                <img
+          <div className="infoWrapper">
+            
+          <img
                   alt="playerhead"
-                  src={`https://crafatar.com/avatars/${state.uuid}`}
+                  src={`https://minotar.net/helm/${state.uuid}/100.png`}
                   className="player-head"
                 />
-              </div>
-              {state.displayName}'s Bedwars Stats
+          </div>
+          <div className="infoWrapper" id="infoWrapper">
+            
+            <div className="infoName" id="infoName">
+              
+              <div className="name">{state.displayName}'s Bedwars Stats</div>
             </div>
           </div>
           <div className="infoWrapper" id="infoWrapper">

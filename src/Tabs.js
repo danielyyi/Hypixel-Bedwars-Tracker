@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import { Bar, Pie, Radar, defaults } from "react-chartjs-2";
 
-defaults.color = "white";
-
+defaults.color = "#cdcdcd";
+defaults.font.family = 'Ubuntu'
 defaults.font.size = 12
 defaults.plugins.tooltip.intersect = true;
 
@@ -437,7 +437,7 @@ function Tabs({ res }) {
                   </div>
                 </div>
                 <div className="stat-card">
-                  <h3>Solos</h3>
+                <div className= "stat-card-title">Solos</div>
                   <div className="stat-card-info">
                     <div className="stat-card-column">
                       <ul className="stat-card-ul">
@@ -542,7 +542,7 @@ function Tabs({ res }) {
                   </div>
                 </div>
                 <div className="stat-card">
-                  <h3>Duos</h3>
+                <div className= "stat-card-title">Duos</div>
                   <div className="stat-card-info">
                     <div className="stat-card-column">
                       <ul className="stat-card-ul">
@@ -647,7 +647,7 @@ function Tabs({ res }) {
                   </div>
                 </div>
                 <div className="stat-card">
-                  <h3>3v3v3v3</h3>
+                <div className= "stat-card-title">3v3v3v3</div>
                   <div className="stat-card-info">
                     <div className="stat-card-column">
                       <ul className="stat-card-ul">
@@ -776,7 +776,7 @@ function Tabs({ res }) {
                   </div>
                 </div>
                 <div className="stat-card">
-                  <h3>4v4v4v4</h3>
+                  <div className= "stat-card-title">4v4v4v4</div>
                   <div className="stat-card-info">
                     <div className="stat-card-column">
                       <ul className="stat-card-ul">
@@ -893,7 +893,7 @@ function Tabs({ res }) {
               }
             >
               <div className="stat-cards-holder">
-              <div className="tap-on-legend" >*Tap on the legend keys to focus on certain stats or gamemodes in a graph</div>
+              <div className="coming-soon" >*Tap on the legend keys to focus on certain stats or gamemodes in a graph</div>
                 <div className="radar-graph-card">
                   <h3 id="chart-header">Stats per Game</h3>
                   <Radar
@@ -904,7 +904,7 @@ function Tabs({ res }) {
                           ticks: {
                             showLabelBackdrop: false,
                             font: {
-                              size: 10,
+                              size: 15,
                             },
                           },
                           angleLines: {
@@ -915,7 +915,7 @@ function Tabs({ res }) {
                           },
                           pointLabels: {
                             font:{
-                              size:15
+                              size:12
                             }
                           }
                         },

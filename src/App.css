@@ -1,6 +1,6 @@
 * {
-  font-family: 'Open Sans', sans-serif;
-  font-weight:900;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bolder;
   margin: 0;
   padding: 0;
 }
@@ -9,6 +9,7 @@ body {
   background-color: rgb(70, 70, 70);
 }
 h2 {
+  font-size: 20;
   color: white;
 }
 
@@ -39,13 +40,13 @@ h1 {
   align-self: center;
 }
 .footer-copyright {
-  font-family: "Georama", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   position: relative;
   align-self: center;
 }
 .footer-contact {
-  font-family: "Georama", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   position: relative;
   align-self: center;
@@ -68,20 +69,15 @@ nav {
 
 .logo {
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .player-head {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
 
-.player-head-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 10px;
-}
+
 
 .box {
   position: relative;
@@ -109,7 +105,6 @@ nav {
 
 .box h2 {
   color: white;
-  font-size: 30px;
   font-weight: 500;
   display: flex;
   margin-bottom: 10px;
@@ -123,13 +118,12 @@ nav {
   border: none;
   outline: none;
   padding: 0 25px;
-  font-size: 18px;
-  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 #enter {
-  top: 1px;
-  font-size: 18px;
+  font-size: 15px;
   position: relative;
   width: 100px;
   height: 50px;
@@ -171,7 +165,6 @@ nav {
 }
 
 .infoName {
-  line-height: 2em;
   font-size: 30px;
   background-color: rgb(39, 38, 38);
   color: white;
@@ -182,15 +175,16 @@ nav {
   justify-content: center;
   align-content: center;
   border-radius: 3px;
+  padding: 2px 6px 6px 6px
 }
 
 .infoOverallStats {
   line-height: 2em;
-  font-size: 30px;
   background-color: rgb(51, 51, 51);
   width: 80%;
-  min-height: 90px;
+  min-height: 60px;
   max-height: none;
+  padding: 5px 0px;
   display: inline-block;
   justify-content: space-around;
   border-radius: 3px;
@@ -203,11 +197,6 @@ nav {
 } 
 
 
-
-.h3 {
-  font-size: 40;
-  text-decoration: underline;
-}
 
 .overallStat {
   font-size: 15px;
@@ -245,7 +234,6 @@ nav {
   border: none;
   outline: none;
   padding: 10px;
-  font-size: 18px;
   background-color: rgb(58, 58, 58);
   color: white;
 }
@@ -256,7 +244,6 @@ nav {
 
 .tabContainer .tabPanel {
   height: 900px;
-  font-size: 22px;
   background-color: rgb(58, 58, 58);
   color: white;
 
@@ -289,7 +276,7 @@ nav {
   width: 90%;
   background: rgb(41, 41, 41);
   cursor: pointer;
-
+  font-size: 15px;
   box-sizing: content-box;
   position: relative;
   outline: none;
@@ -346,7 +333,7 @@ button {
 .stat-card {
   background-color: rgb(43, 43, 43);
   width: 45%;
-  height: 350px;
+  height: 300px;
   text-align: center;
   border-radius: 5px;
   margin: 13px 0px;
@@ -359,7 +346,7 @@ button {
 
 .stat-card-ul {
   list-style: none;
-  line-height: 56px;
+  line-height: 50px;
 }
 
 .stat-card-header {
@@ -367,7 +354,7 @@ button {
 }
 .stat-card-value {
   margin: -30px 0px -8px 0px;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 h3 {
@@ -377,14 +364,14 @@ h3 {
 
 .coins-exp-item {
   margin: 0px 30px 0px 5px;
-  font-size: 18px;
+  font-size: 15px;
   word-break: keep-all;
   
 }
 
 .coming-soon {
-  margin: 20px 30px 0px 5px;
-  font-size: 18px;
+  margin: 10px 0px 0px 5px;
+  font-size: 15px;
   position: relative;
   word-break: keep-all;
   align-self: center;
@@ -392,17 +379,9 @@ h3 {
   background-color: rgb(36, 36, 36);
   border-radius: 15px;
   padding: 5px 10px;
+  text-align: center;
 }
-.tap-on-legend {
-  margin: 20px 30px 0px 5px;
-  font-size: 15px;
-  position: relative;
-  word-break: keep-all;
-  align-self: center;
-  justify-content: center;
-  padding: 5px 10px;
-  font-weight: 600;
-}
+
 .coins-exp {
   padding: 5px 0px 5px 10px;
   display: flex;
@@ -444,8 +423,14 @@ h3 {
 }
 
 #chart-header {
-  font-size: 17px;
+  font-size: 15px;
   word-break: keep-all;
+}
+
+.stat-card-title{
+  font-size: 20px;
+  background-color:rgb(36, 36, 36);
+  padding: 5px;
 }
 
 @media screen and (max-width: 1025px) {
@@ -467,9 +452,7 @@ h3 {
     height: 50vh;
   }
 
-  .coins-exp-item {
-    font-size: 15px;
-  }
+
 
   .overall-ul li{
    
@@ -478,14 +461,17 @@ h3 {
 
   
 .coming-soon {
-  font-size: 12px;
+  font-size: 10px;
 }
-.tap-on-legend {
-  font-size: 12px;
-}
+
 }
 
 @media screen and (max-width: 580px) {
+  .stat-card-title{
+    font-size: 15px;
+    background-color:rgb(36, 36, 36);
+    padding: 5px;
+  }
   .overall-ul li{
     line-height: 25px;
   } 
@@ -493,8 +479,12 @@ h3 {
     margin-top: 10px;
   }
   #enter {
-    height: 42px;
-    width: 90px;
+    height: 40px;
+    width: 80px;
+  }
+  .box input[type="text"] {
+    width: 175px;
+    height: 40px;
   }
   .stat-card-ul {
     line-height: 46px;
@@ -520,10 +510,7 @@ h3 {
   .stat-card {
     height: 245px;
   }
-  .box input[type="text"] {
-    width: 150px;
-    height: 40px;
-  }
+  
   .infoName {
     font-size: 20px;
   }
@@ -536,6 +523,9 @@ h3 {
     margin-bottom: -15px;
   }
 
+  .h3{
+    font-size: 9px;
+  }
   .logo {
     text-transform: uppercase;
     letter-spacing: 5px;
