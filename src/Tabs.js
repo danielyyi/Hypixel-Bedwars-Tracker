@@ -3,7 +3,9 @@ import "./App.css";
 import { Bar, Pie, Radar, defaults } from "react-chartjs-2";
 
 defaults.color = "white";
-defaults.font.family = "Bungee";
+defaults.font.family = "Open Sans";
+defaults.font.size = 15
+defaults.font.weight =500
 defaults.plugins.tooltip.intersect = true;
 
 
@@ -18,7 +20,7 @@ function Tabs({ res }) {
   const [resourcesChartData, setResourcesChartData] = useState({});
   const updateResourcesChartData = (resourcesArray) => {
     setResourcesChartData({
-      labels: ["1x8", "2x8", "3x4", "4x4"],
+      labels: ["Solos", "Duos", "3v3v3v3", "4v4v4v4"],
       datasets: [
         {
           label: "Iron",
@@ -112,7 +114,7 @@ function Tabs({ res }) {
       ],
       datasets: [
         {
-          label: "1v8",
+          label: "Solos",
           data: [
             stats.one_statsArray[4] / stats.one_statsArray[8],
             stats.one_statsArray[5] / stats.one_statsArray[8],
@@ -127,7 +129,7 @@ function Tabs({ res }) {
           pointBorderColor: "white",
         },
         {
-          label: "2v8",
+          label: "Duos",
           data: [
             stats.two_statsArray[4] / stats.two_statsArray[8],
             stats.two_statsArray[5] / stats.two_statsArray[8],
@@ -142,7 +144,7 @@ function Tabs({ res }) {
           pointBorderColor: "white",
         },
         {
-          label: "3v4",
+          label: "3v3v3v3",
           data: [
             stats.three_statsArray[4] / stats.three_statsArray[8],
             stats.three_statsArray[5] / stats.three_statsArray[8],
@@ -157,7 +159,7 @@ function Tabs({ res }) {
           pointBorderColor: "white",
         },
         {
-          label: "4v4",
+          label: "4v4v4v4",
           data: [
             stats.four_statsArray[4] / stats.four_statsArray[8],
             stats.four_statsArray[5] / stats.four_statsArray[8],
@@ -178,7 +180,7 @@ function Tabs({ res }) {
   const [ratiosChartData, setRatiosChartData] = useState({});
   const updateRatiosChartData = (stats) => {
     setRatiosChartData({
-      labels: ["1v8", "2v8", "3v4", "4v4"],
+      labels: ["Solos", "Duos", "3v3v3v3", "4v4v4v4"],
       datasets: [
         {
           label: "Kill/Death Ratio",
@@ -201,13 +203,13 @@ function Tabs({ res }) {
           ],
         },
         {
-          label: "Win Rate",
+          label: "Win Rate (%)",
           backgroundColor: "#ff9f1c",
           data: [
-            stats.one_statsArray[9],
-            stats.two_statsArray[9],
-            stats.three_statsArray[9],
-            stats.four_statsArray[9],
+            stats.one_statsArray[9] * 100,
+            stats.two_statsArray[9] *100,
+            stats.three_statsArray[9] *100,
+            stats.four_statsArray[9] *100,
           ],
         },
       ],
@@ -279,7 +281,7 @@ function Tabs({ res }) {
               ] !== undefined
             ) {
               currentGamemode[i] =
-                Math.round(
+                Math.round(100*(Math.round(
                   (100 *
                     res.player.stats.Bedwars[
                       `${gamemodesArray[k]}_${statsArray[0]}_bedwars`
@@ -287,7 +289,7 @@ function Tabs({ res }) {
                     res.player.stats.Bedwars[
                       `${gamemodesArray[k]}_${statsArray[8]}_bedwars`
                     ]
-                ) / 100;
+                ) / 100));
             } else {
               currentGamemode[i] = 0;
             }
@@ -436,7 +438,7 @@ function Tabs({ res }) {
                   </div>
                 </div>
                 <div className="stat-card">
-                  <h3>1v8</h3>
+                  <h3>Solos</h3>
                   <div className="stat-card-info">
                     <div className="stat-card-column">
                       <ul className="stat-card-ul">
@@ -522,7 +524,7 @@ function Tabs({ res }) {
                       <ul className="stat-card-ul">
                         <li>
                           <div className="stat-card-header">Win Rate</div>
-                          <div className="stat-card-value">{state.One[9]}</div>
+                          <div className="stat-card-value">{state.One[9]}%</div>
                         </li>
                         <li>
                           <div className="stat-card-header">KD</div>
@@ -541,7 +543,7 @@ function Tabs({ res }) {
                   </div>
                 </div>
                 <div className="stat-card">
-                  <h3>2v8</h3>
+                  <h3>Duos</h3>
                   <div className="stat-card-info">
                     <div className="stat-card-column">
                       <ul className="stat-card-ul">
@@ -627,7 +629,7 @@ function Tabs({ res }) {
                       <ul className="stat-card-ul">
                         <li>
                           <div className="stat-card-header">Win Rate</div>
-                          <div className="stat-card-value">{state.Two[9]}</div>
+                          <div className="stat-card-value">{state.Two[9]}%</div>
                         </li>
                         <li>
                           <div className="stat-card-header">KD</div>
@@ -646,7 +648,7 @@ function Tabs({ res }) {
                   </div>
                 </div>
                 <div className="stat-card">
-                  <h3>3v4</h3>
+                  <h3>3v3v3v3</h3>
                   <div className="stat-card-info">
                     <div className="stat-card-column">
                       <ul className="stat-card-ul">
@@ -749,7 +751,7 @@ function Tabs({ res }) {
                         <li>
                           <div className="stat-card-header">Win Rate</div>
                           <div className="stat-card-value">
-                            {state.Three[9]}
+                            {state.Three[9]}%
                           </div>
                         </li>
                         <li>
@@ -775,7 +777,7 @@ function Tabs({ res }) {
                   </div>
                 </div>
                 <div className="stat-card">
-                  <h3>4v4</h3>
+                  <h3>4v4v4v4</h3>
                   <div className="stat-card-info">
                     <div className="stat-card-column">
                       <ul className="stat-card-ul">
@@ -861,7 +863,7 @@ function Tabs({ res }) {
                       <ul className="stat-card-ul">
                         <li>
                           <div className="stat-card-header">Win Rate</div>
-                          <div className="stat-card-value">{state.Four[9]}</div>
+                          <div className="stat-card-value">{state.Four[9]}%</div>
                         </li>
                         <li>
                           <div className="stat-card-header">KD</div>
@@ -892,6 +894,7 @@ function Tabs({ res }) {
               }
             >
               <div className="stat-cards-holder">
+              <div className="tap-on-legend" >*Tap on the legend keys to focus on certain stats or gamemodes in a graph</div>
                 <div className="radar-graph-card">
                   <h3 id="chart-header">Stats per Game</h3>
                   <Radar
@@ -911,6 +914,11 @@ function Tabs({ res }) {
                           grid: {
                             color: "rgba(255, 255, 255, .3)",
                           },
+                          pointLabels: {
+                            font:{
+                              size:15
+                            }
+                          }
                         },
                       },
                       responsive: true,

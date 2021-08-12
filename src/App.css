@@ -1,5 +1,6 @@
 * {
-  font-family: "Bungee", cursive;
+  font-family: 'Open Sans', sans-serif;
+  font-weight:900;
   margin: 0;
   padding: 0;
 }
@@ -23,7 +24,6 @@ h1 {
 }
 
 .footer {
-  font-family: "Roboto";
   background-color: rgb(39, 38, 38);
   color: white;
   height: 200px;
@@ -40,11 +40,13 @@ h1 {
 }
 .footer-copyright {
   font-family: "Georama", sans-serif;
+  font-weight: 400;
   position: relative;
   align-self: center;
 }
 .footer-contact {
   font-family: "Georama", sans-serif;
+  font-weight: 400;
   position: relative;
   align-self: center;
 }
@@ -121,7 +123,7 @@ nav {
   outline: none;
   padding: 0 25px;
   font-size: 18px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #enter {
@@ -207,7 +209,7 @@ nav {
 }
 
 .overallStat {
-  font-size: 12px;
+  font-size: 15px;
   height: 20px;
   color: rgb(219, 219, 219);
   margin-top: 0px;
@@ -352,16 +354,15 @@ button {
 .stat-card-info {
   display: flex;
   justify-content: space-evenly;
-  margin: 8px 0px;
 }
 
 .stat-card-ul {
   list-style: none;
-  line-height: 52px;
+  line-height: 56px;
 }
 
 .stat-card-header {
-  font-size: 12px;
+  font-size: 15px;
 }
 .stat-card-value {
   margin: -30px 0px -8px 0px;
@@ -370,7 +371,7 @@ button {
 
 h3 {
   background-color: rgb(36, 36, 36);
-  padding: 2px;
+  padding: 5px;
 }
 
 .coins-exp-item {
@@ -391,8 +392,18 @@ h3 {
   border-radius: 15px;
   padding: 5px 10px;
 }
+.tap-on-legend {
+  margin: 20px 30px 0px 5px;
+  font-size: 15px;
+  position: relative;
+  word-break: keep-all;
+  align-self: center;
+  justify-content: center;
+  padding: 5px 10px;
+  font-weight: 600;
+}
 .coins-exp {
-  padding-left: 10px;
+  padding: 5px 0px 5px 10px;
   display: flex;
   flex-wrap: wrap;
   background-color: rgb(36, 36, 36);
@@ -418,7 +429,7 @@ h3 {
   border-radius: 5px;
   margin: 5px;
   padding: 10px;
-  padding-bottom: 70px;
+  padding-bottom: 50px;
 }
 .radar-graph-card {
   height: 75vh;
@@ -428,7 +439,7 @@ h3 {
   border-radius: 5px;
   margin: 5px;
   padding: 10px;
-  padding-bottom: 65px;
+  padding-bottom: 50px;
 }
 
 #chart-header {
@@ -441,7 +452,7 @@ h3 {
     margin: 0px 11px 0px 11px;
   }
   .bar-graph-card {
-    padding-bottom: 100px;
+    padding-bottom: 50px;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -468,9 +479,18 @@ h3 {
 .coming-soon {
   font-size: 12px;
 }
+.tap-on-legend {
+  font-size: 9px;
+}
 }
 
 @media screen and (max-width: 580px) {
+  .overall-ul li{
+    line-height: 25px;
+  } 
+  .overall-ul{
+    margin-top: 10px;
+  }
   #enter {
     height: 42px;
     width: 90px;

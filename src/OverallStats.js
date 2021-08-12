@@ -234,7 +234,7 @@ function OverallStats({ childToParent }) {
                 </li>
                 <li>
                   <div className="overallStat">Win Rate</div>
-                  <div className="oStatValue">{state.winRate}</div>
+                  <div className="oStatValue">{state.winRate * 100}%</div>
                 </li>
                 <li>
                   <div className="overallStat">KD</div>
