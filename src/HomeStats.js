@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./App.css";
+const f = new Intl.NumberFormat('en')
 function HomeStats() {
   const key = process.env.REACT_APP_API_KEY;
   const { search } = useLocation();
@@ -51,7 +52,7 @@ function HomeStats() {
           <div className="home-stat-wrapper">
             <div className="home-stat-card">
               Current Bedwars Player Count:{" "}
-              <span style={{ color: "lime" }}>{state.bwPlayerCount}</span>{" "}
+              <span style={{ color: "lime" }}>{f.format(state.bwPlayerCount)}</span>{" "}
               Players ({state.bwPlayerPercent}%)
             </div>
           </div>

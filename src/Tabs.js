@@ -6,6 +6,7 @@ defaults.color = "#cdcdcd";
 defaults.font.family = 'Ubuntu'
 defaults.font.size = 12
 defaults.plugins.tooltip.intersect = true;
+const f = new Intl.NumberFormat('en')
 
 
 function Tabs({ res }) {
@@ -202,13 +203,13 @@ function Tabs({ res }) {
           ],
         },
         {
-          label: "Win Rate (%)",
+          label: "FK/FD Ratio",
           backgroundColor: "#ff9f1c",
           data: [
-            stats.one_statsArray[9] ,
-            stats.two_statsArray[9] ,
-            stats.three_statsArray[9] ,
-            stats.four_statsArray[9] ,
+            stats.one_statsArray[11] ,
+            stats.two_statsArray[11] ,
+            stats.three_statsArray[11] ,
+            stats.four_statsArray[11] ,
           ],
         },
       ],
@@ -319,7 +320,7 @@ function Tabs({ res }) {
               ] !== undefined
             ) {
               currentGamemode[i] =
-                Math.round(
+              Math.round(
                   (100 *
                     res.player.stats.Bedwars[
                       `${gamemodesArray[k]}_${statsArray[6]}_bedwars`
@@ -337,7 +338,7 @@ function Tabs({ res }) {
               ] !== undefined
             ) {
               currentGamemode[i] =
-                res.player.stats.Bedwars[
+              res.player.stats.Bedwars[
                   `${gamemodesArray[k]}_${statsArray[i]}_bedwars`
                 ];
             } else {
@@ -359,7 +360,6 @@ function Tabs({ res }) {
 
     updateKillTypesChartData(res.player.stats.Bedwars);
     updateDeathTypesChartData(res.player.stats.Bedwars);
-    console.log(two_statsArray)
     const stats = {
       one_statsArray,
       two_statsArray,
@@ -455,7 +455,7 @@ function Tabs({ res }) {
                           >
                             Wins
                           </div>
-                          <div className="stat-card-value">{state.One[0]}</div>
+                          <div className="stat-card-value">{f.format(state.One[0])}</div>
                         </li>
                         <li>
                           <div
@@ -464,7 +464,7 @@ function Tabs({ res }) {
                           >
                             Kills
                           </div>
-                          <div className="stat-card-value">{state.One[2]}</div>
+                          <div className="stat-card-value">{f.format(state.One[2])}</div>
                         </li>
                         <li>
                           <div
@@ -473,7 +473,7 @@ function Tabs({ res }) {
                           >
                             Beds Broken
                           </div>
-                          <div className="stat-card-value">{state.One[4]}</div>
+                          <div className="stat-card-value">{f.format(state.One[4])}</div>
                         </li>
                         <li>
                           <div
@@ -482,7 +482,7 @@ function Tabs({ res }) {
                           >
                             Final Kills
                           </div>
-                          <div className="stat-card-value">{state.One[6]}</div>
+                          <div className="stat-card-value">{f.format(state.One[6])}</div>
                         </li>
                       </ul>
                     </div>
@@ -495,7 +495,7 @@ function Tabs({ res }) {
                           >
                             Losses
                           </div>
-                          <div className="stat-card-value">{state.One[1]}</div>
+                          <div className="stat-card-value">{f.format(state.One[1])}</div>
                         </li>
                         <li>
                           <div
@@ -504,7 +504,7 @@ function Tabs({ res }) {
                           >
                             Deaths
                           </div>
-                          <div className="stat-card-value">{state.One[3]}</div>
+                          <div className="stat-card-value">{f.format(state.One[3])}</div>
                         </li>
                         <li>
                           <div
@@ -513,7 +513,7 @@ function Tabs({ res }) {
                           >
                             Beds Lost
                           </div>
-                          <div className="stat-card-value">{state.One[5]}</div>
+                          <div className="stat-card-value">{f.format(state.One[5])}</div>
                         </li>
                         <li>
                           <div
@@ -522,7 +522,7 @@ function Tabs({ res }) {
                           >
                             Final Deaths
                           </div>
-                          <div className="stat-card-value">{state.One[7]}</div>
+                          <div className="stat-card-value">{f.format(state.One[7])}</div>
                         </li>
                       </ul>
                     </div>
@@ -542,7 +542,7 @@ function Tabs({ res }) {
                         </li>
                         <li>
                           <div className="stat-card-header">Games Played</div>
-                          <div className="stat-card-value">{state.One[8]}</div>
+                          <div className="stat-card-value">{f.format(state.One[8])}</div>
                         </li>
                         
                       </ul>
@@ -561,7 +561,7 @@ function Tabs({ res }) {
                           >
                             Wins
                           </div>
-                          <div className="stat-card-value">{state.Two[0]}</div>
+                          <div className="stat-card-value">{f.format(state.Two[0])}</div>
                         </li>
                         <li>
                           <div
@@ -570,7 +570,7 @@ function Tabs({ res }) {
                           >
                             Kills
                           </div>
-                          <div className="stat-card-value">{state.Two[2]}</div>
+                          <div className="stat-card-value">{f.format(state.Two[2])}</div>
                         </li>
                         <li>
                           <div
@@ -579,7 +579,7 @@ function Tabs({ res }) {
                           >
                             Beds Broken
                           </div>
-                          <div className="stat-card-value">{state.Two[4]}</div>
+                          <div className="stat-card-value">{f.format(state.Two[4])}</div>
                         </li>
                         <li>
                           <div
@@ -588,7 +588,7 @@ function Tabs({ res }) {
                           >
                             Final Kills
                           </div>
-                          <div className="stat-card-value">{state.Two[6]}</div>
+                          <div className="stat-card-value">{f.format(state.Two[6])}</div>
                         </li>
                       </ul>
                     </div>
@@ -601,7 +601,7 @@ function Tabs({ res }) {
                           >
                             Losses
                           </div>
-                          <div className="stat-card-value">{state.Two[1]}</div>
+                          <div className="stat-card-value">{f.format(state.Two[1])}</div>
                         </li>
                         <li>
                           <div
@@ -610,7 +610,7 @@ function Tabs({ res }) {
                           >
                             Deaths
                           </div>
-                          <div className="stat-card-value">{state.Two[3]}</div>
+                          <div className="stat-card-value">{f.format(state.Two[3])}</div>
                         </li>
                         <li>
                           <div
@@ -619,7 +619,7 @@ function Tabs({ res }) {
                           >
                             Beds Lost
                           </div>
-                          <div className="stat-card-value">{state.Two[5]}</div>
+                          <div className="stat-card-value">{f.format(state.Two[5])}</div>
                         </li>
                         <li>
                           <div
@@ -628,7 +628,7 @@ function Tabs({ res }) {
                           >
                             Final Deaths
                           </div>
-                          <div className="stat-card-value">{state.Two[7]}</div>
+                          <div className="stat-card-value">{f.format(state.Two[7])}</div>
                         </li>
                       </ul>
                     </div>
@@ -648,7 +648,7 @@ function Tabs({ res }) {
                         </li>
                         <li>
                           <div className="stat-card-header">Games Played</div>
-                          <div className="stat-card-value">{state.Two[8]}</div>
+                          <div className="stat-card-value">{f.format(state.Two[8])}</div>
                         </li>
                         
                       </ul>
@@ -668,7 +668,7 @@ function Tabs({ res }) {
                             Wins
                           </div>
                           <div className="stat-card-value">
-                            {state.Three[0]}
+                            {f.format(state.Three[0])}
                           </div>
                         </li>
                         <li>
@@ -679,7 +679,7 @@ function Tabs({ res }) {
                             Kills
                           </div>
                           <div className="stat-card-value">
-                            {state.Three[2]}
+                            {f.format(state.Three[2])}
                           </div>
                         </li>
                         <li>
@@ -690,7 +690,7 @@ function Tabs({ res }) {
                             Beds Broken
                           </div>
                           <div className="stat-card-value">
-                            {state.Three[4]}
+                            {f.format(state.Three[4])}
                           </div>
                         </li>
                         <li>
@@ -701,7 +701,7 @@ function Tabs({ res }) {
                             Final Kills
                           </div>
                           <div className="stat-card-value">
-                            {state.Three[6]}
+                            {f.format(state.Three[6])}
                           </div>
                         </li>
                       </ul>
@@ -716,7 +716,7 @@ function Tabs({ res }) {
                             Losses
                           </div>
                           <div className="stat-card-value">
-                            {state.Three[1]}
+                            {f.format(state.Three[1])}
                           </div>
                         </li>
                         <li>
@@ -727,7 +727,7 @@ function Tabs({ res }) {
                             Deaths
                           </div>
                           <div className="stat-card-value">
-                            {state.Three[3]}
+                            {f.format(state.Three[3])}
                           </div>
                         </li>
                         <li>
@@ -738,7 +738,7 @@ function Tabs({ res }) {
                             Beds Lost
                           </div>
                           <div className="stat-card-value">
-                            {state.Three[5]}
+                            {f.format(state.Three[5])}
                           </div>
                         </li>
                         <li>
@@ -749,7 +749,7 @@ function Tabs({ res }) {
                             Final Deaths
                           </div>
                           <div className="stat-card-value">
-                            {state.Three[7]}
+                            {f.format(state.Three[7])}
                           </div>
                         </li>
                       </ul>
@@ -777,7 +777,7 @@ function Tabs({ res }) {
                         <li>
                           <div className="stat-card-header">Games Played</div>
                           <div className="stat-card-value">
-                            {state.Three[8]}
+                            {f.format(state.Three[8])}
                           </div>
                         </li>
                        
@@ -797,7 +797,7 @@ function Tabs({ res }) {
                           >
                             Wins
                           </div>
-                          <div className="stat-card-value">{state.Four[0]}</div>
+                          <div className="stat-card-value">{f.format(state.Four[0])}</div>
                         </li>
                         <li>
                           <div
@@ -806,7 +806,7 @@ function Tabs({ res }) {
                           >
                             Kills
                           </div>
-                          <div className="stat-card-value">{state.Four[2]}</div>
+                          <div className="stat-card-value">{f.format(state.Four[2])}</div>
                         </li>
                         <li>
                           <div
@@ -815,7 +815,7 @@ function Tabs({ res }) {
                           >
                             Beds Broken
                           </div>
-                          <div className="stat-card-value">{state.Four[4]}</div>
+                          <div className="stat-card-value">{f.format(state.Four[4])}</div>
                         </li>
                         <li>
                           <div
@@ -824,7 +824,7 @@ function Tabs({ res }) {
                           >
                             Final Kills
                           </div>
-                          <div className="stat-card-value">{state.Four[6]}</div>
+                          <div className="stat-card-value">{f.format(state.Four[6])}</div>
                         </li>
                       </ul>
                     </div>
@@ -837,7 +837,7 @@ function Tabs({ res }) {
                           >
                             Losses
                           </div>
-                          <div className="stat-card-value">{state.Four[1]}</div>
+                          <div className="stat-card-value">{f.format(state.Four[1])}</div>
                         </li>
                         <li>
                           <div
@@ -846,7 +846,7 @@ function Tabs({ res }) {
                           >
                             Deaths
                           </div>
-                          <div className="stat-card-value">{state.Four[3]}</div>
+                          <div className="stat-card-value">{f.format(state.Four[3])}</div>
                         </li>
                         <li>
                           <div
@@ -855,7 +855,7 @@ function Tabs({ res }) {
                           >
                             Beds Lost
                           </div>
-                          <div className="stat-card-value">{state.Four[5]}</div>
+                          <div className="stat-card-value">{f.format(state.Four[5])}</div>
                         </li>
                         <li>
                           <div
@@ -864,7 +864,7 @@ function Tabs({ res }) {
                           >
                             Final Deaths
                           </div>
-                          <div className="stat-card-value">{state.Four[7]}</div>
+                          <div className="stat-card-value">{f.format(state.Four[7])}</div>
                         </li>
                       </ul>
                     </div>
@@ -888,7 +888,7 @@ function Tabs({ res }) {
                         </li>
                         <li>
                           <div className="stat-card-header">Games Played</div>
-                          <div className="stat-card-value">{state.Four[8]}</div>
+                          <div className="stat-card-value">{f.format(state.Four[8])}</div>
                         </li>
                         
                         
@@ -957,7 +957,7 @@ function Tabs({ res }) {
                 </div>
                 <div className="bar-graph-card">
                   <h3 id="chart-header">
-                    K/D, BB/BL, and Win Rate by Gamemode
+                    K/D, BB/BL, and FK/FD by Gamemode
                   </h3>
                   <Bar
                     data={ratiosChartData}

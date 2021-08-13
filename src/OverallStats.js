@@ -3,6 +3,7 @@ import "./App.css";
 import { useLocation } from "react-router-dom";
 
 const key = process.env.REACT_APP_API_KEY;
+const f = new Intl.NumberFormat('en')
 
 function OverallStats({ childToParent }) {
   const { search } = useLocation();
@@ -195,50 +196,50 @@ function OverallStats({ childToParent }) {
                     Wins
                   </div>
                   <div className="oStatValue" id="wins">
-                    {state.wins}
+                    {f.format(state.wins)}
                   </div>
                 </li>
                 <li>
                   <div className="overallStat" style={{ color: "red" }}>
                     Losses
                   </div>
-                  <div className="oStatValue">{state.losses}</div>
+                  <div className="oStatValue">{f.format(state.losses)}</div>
                 </li>
                 <li>
                   <div className="overallStat" style={{ color: "lime" }}>
                     Kills
                   </div>
-                  <div className="oStatValue">{state.kills}</div>
+                  <div className="oStatValue">{f.format(state.kills)}</div>
                 </li>
                 <li>
                   <div className="overallStat" style={{ color: "red" }}>
                     Deaths
                   </div>
-                  <div className="oStatValue">{state.deaths}</div>
+                  <div className="oStatValue">{f.format(state.deaths)}</div>
                 </li>
                 <li>
                   <div className="overallStat" style={{ color: "lime" }}>
                     Beds Broken
                   </div>
-                  <div className="oStatValue">{state.bedsBroken}</div>
+                  <div className="oStatValue">{f.format(state.bedsBroken)}</div>
                 </li>
                 <li>
                   <div className="overallStat" style={{ color: "red" }}>
                     Beds Lost
                   </div>
-                  <div className="oStatValue">{state.bedsLost}</div>
+                  <div className="oStatValue">{f.format(state.bedsLost)}</div>
                 </li>
                 <li>
                   <div className="overallStat" style={{ color: "lime" }}>
                     Final Kills
                   </div>
-                  <div className="oStatValue">{state.finalKills}</div>
+                  <div className="oStatValue">{f.format(state.finalKills)}</div>
                 </li>
                 <li>
                   <div className="overallStat" style={{ color: "red" }}>
                     Final Deaths
                   </div>
-                  <div className="oStatValue">{state.finalDeaths}</div>
+                  <div className="oStatValue">{f.format(state.finalDeaths)}</div>
                 </li>
                 <li>
                   <div className="overallStat">Win Rate</div>
@@ -254,7 +255,7 @@ function OverallStats({ childToParent }) {
                 </li>
                 <li>
                   <div className="overallStat">Games Played</div>
-                  <div className="oStatValue">{state.gamesPlayed}</div>
+                  <div className="oStatValue">{f.format(state.gamesPlayed)}</div>
                 </li>
               </ul>
             </div>
