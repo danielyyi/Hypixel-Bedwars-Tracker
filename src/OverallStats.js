@@ -117,7 +117,7 @@ function OverallStats({ childToParent }) {
       Math.round(
         (100 * res.player.stats.Bedwars.wins_bedwars) /
           res.player.stats.Bedwars.games_played_bedwars
-      ) / 100;
+      );
     const kills = res.player.stats.Bedwars.kills_bedwars;
     const deaths = res.player.stats.Bedwars.deaths_bedwars;
     const kd =
@@ -243,7 +243,7 @@ function OverallStats({ childToParent }) {
                 </li>
                 <li>
                   <div className="overallStat">Win Rate</div>
-                  <div className="oStatValue">{state.winRate * 100}%</div>
+                  <div className="oStatValue">{state.winRate}%</div>
                 </li>
                 <li>
                   <div className="overallStat">KD</div>
