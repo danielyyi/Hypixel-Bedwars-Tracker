@@ -17,7 +17,7 @@ function OverallStats({ childToParent }) {
   }, []);
 
   async function FetchHypixel(uuid){
-    const res = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
+    const res = await fetch(`https://bedwarstats.com/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
     console.log(await res.json())
   }
 
