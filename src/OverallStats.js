@@ -11,10 +11,15 @@ function OverallStats({ childToParent }) {
   const profile = searchParams.get("profile");
   useEffect(() => {
     if (profile !== null) {
-
+      
       ConnectMojang(profile);
     }
   }, []);
+
+  async function FetchHypixel(uuid){
+    const res = await fetch(`http://localhost:9000/fetch-hypixel?uuid=${uuid}`)
+    console.log(await res.json())
+  }
 
   //show error messages
   const [invalidName, invalidNameShow] = useState(false);
@@ -76,6 +81,7 @@ function OverallStats({ childToParent }) {
       }
       else{
         ConnectAPI(res.data.player.raw_id);
+        FetchHypixel(res.data.player.raw_id)
       }
 
     } catch (e) {

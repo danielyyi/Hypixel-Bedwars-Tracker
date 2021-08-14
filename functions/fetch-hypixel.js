@@ -1,30 +1,20 @@
-
-
-exports.handler = async function(event, context, callback) {
+import fetch from 'node-fetch'
+exports.handler = async (event, context) => {
+  const uuid = event.queryStringParameters.uuid
   const key = process.env.REACT_APP_API_KEY;
-  const uuid = event.queryStringParamter.name;
-  const URL =  `https://api.hypixel.net/player?key=${key}&uuid=${uuid}`
 
-  const send = body => {
-    callback(null, {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers':
-          'Origin, X-Requested-With, Content-Type, Accept'
-      },
-      body: JSON.stringify(body)
-    });
+  const rawRes = await fetch(
+   `https://api.hypixel.net/player?key=${key}&uuid=${uuid}`
+  );
+  const res = await rawRes.json();
+  return {
+    statusCode: 200, 
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers':
+        'Origin, X-Requested-With, Content-Type, Accept'
+    },
+    body: JSON.stringify(res)
   }
-
-  // Perform API call
-
-    fetch(URL)
-      .then(res => send(res.data))
-      .catch(err => send(err));
-  
-
-
-
-
 }
+
