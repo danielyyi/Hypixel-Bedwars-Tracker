@@ -10,11 +10,18 @@ import Footer from "./Footer";
 import HomeStats from "./HomeStats";
 
 function App() {
+ 
+ 
+  
+  
+
   const [data, setData] = useState({ empty: true });
 
   const childToParent = (childdata) => {
     setData(childdata);
   };
+ 
+  
 
   return (
     <Router>

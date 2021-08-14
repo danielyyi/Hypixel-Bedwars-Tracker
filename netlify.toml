@@ -1,0 +1,5 @@
+[build]
+  functions = "lambda"
+
+[functions]
+  directory = "my_functions"
