@@ -16,8 +16,6 @@ function OverallStats({ childToParent }) {
     }
   }, []);
 
-
-
   //show error messages
   const [invalidName, invalidNameShow] = useState(false);
   const [frequentName, frequentNameShow] = useState(false);
@@ -88,13 +86,27 @@ function OverallStats({ childToParent }) {
 
   async function ConnectAPI(profile) {
     try {
-      const fetchUsers = async () =>
-  await (await fetch('/.netlify/functions/fetch-hypixel')).json();
-
-fetchUsers().then(data => {
-  console.log(data)
-      
-})} catch (error) {
+      const rawRes = await fetch(
+        `https://api.hypixel.net/player?key=${key}&uuid=${profile}`
+      );
+      const res = await rawRes.json();
+      if (res.success === true && res.player == null) {
+        invalidNameShow(true);
+      } else if (
+        res.success === false &&
+        res.cause === "You have already looked up this name recently"
+      ) {
+        frequentNameShow(true);
+      } else {
+        if (res.player.stats.Bedwars == null) {
+          noDataShow(true);
+        } else {
+          infoShow(true);
+          childToParent(res);
+          getBedwarsData(res);
+        }
+      }
+    } catch (error) {
       console.log(error);
     }
   }
