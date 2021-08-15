@@ -16,10 +16,6 @@ function OverallStats({ childToParent }) {
     }
   }, []);
 
-  async function FetchHypixel(uuid){
-    const res = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
-    console.log(await res.json())
-  }
 
   //show error messages
   const [invalidName, invalidNameShow] = useState(false);
@@ -81,7 +77,6 @@ function OverallStats({ childToParent }) {
       }
       else{
         ConnectAPI(res.data.player.raw_id);
-        FetchHypixel(res.data.player.raw_id)
       }
 
     } catch (e) {
@@ -90,7 +85,7 @@ function OverallStats({ childToParent }) {
   }
 
 
-  async function ConnectAPI(profile) {
+  async function ConnectAPI(uuid) {
     try {
       const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
       const res = await rawRes.json();
