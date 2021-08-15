@@ -5,7 +5,3 @@
   directory = "my_functions"
 
 
-[[redirects]]
-from = '/api/*'
-to = '/.netlify/lambda/:splat'
-status = 200
