@@ -23,7 +23,7 @@ function OverallStats({ childToParent }) {
 
   useEffect(() => {
     if (profile !== null) {
-      
+      loadingShow(true);
       ConnectMojang(profile);
     }
   }, []);
@@ -80,10 +80,10 @@ function OverallStats({ childToParent }) {
       );
       const res = await rawRes.json();
       if(res.data.player == undefined){
+        loadingShow(false);
         invalidNameShow(true);
       }
       else{
-        loadingShow(true);
         ConnectAPI(res.data.player.raw_id);
       }
 
@@ -99,17 +99,21 @@ function OverallStats({ childToParent }) {
       const res = await rawRes.json().then(loadingShow(false));
 
       if(res == undefined){
+        
         wentWrongShow(true);
       }
       else if (res.success === true && res.player == null) {
+        
         invalidNameShow(true);
       } else if (
         res.success === false &&
         res.cause === "You have already looked up this name recently"
       ) {
+        
         frequentNameShow(true);
       } else {
         if (res.player.stats.Bedwars == null) {
+          
           noDataShow(true);
         } else {
           infoShow(true);
