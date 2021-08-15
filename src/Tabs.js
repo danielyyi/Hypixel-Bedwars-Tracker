@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLocation } from "react";
 import "./App.css";
 import { Bar, Pie, Radar, defaults } from "react-chartjs-2";
 
@@ -13,22 +13,12 @@ function Tabs({ res }) {
   useEffect(() => {
     if (res.success === true) {
       assignData(res);
+      loadingShow(true)
     }
   }, [res]);
 
 
-
-  const { search } = useLocation();
-  const searchParams = new URLSearchParams(search);
-  const profile = searchParams.get("profile");
-
-
-  useEffect(() => {
-    if (profile !== null) {
-      loadingShow(true)
-    }
-  }, []);
-  const [loading, loadingShow] = useState(false);
+ 
 
   //compiles data for "# of resources by gamemode" chart
   const [resourcesChartData, setResourcesChartData] = useState({});
@@ -242,7 +232,10 @@ function Tabs({ res }) {
   };
   //used to toggle things from hidden to shown
   const [info, infoShow] = useState(false);
+  const [loading, loadingShow] = useState(false);
   //compiles data for the 1v8, 2v8, 3v4, 4v4 player cards
+
+  
   const [state, setState] = useState(
     {
       One: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
