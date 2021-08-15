@@ -188,11 +188,11 @@ function OverallStats({ childToParent }) {
             </div>
           ) : null}
           {loading ? (
-          <div className="infoWrapper" id="infoWrapper">
+          
             <div className="error-text" style={{color:'white'}}>
               Loading stats...
             </div>
-            </div>
+          
           ) : null}
         </div>
       </div>
