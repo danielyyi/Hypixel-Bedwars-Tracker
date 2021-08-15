@@ -18,7 +18,7 @@ function OverallStats({ childToParent }) {
 
   async function FetchHypixel(uuid){
     const res = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
-    console.log(await res.text())
+    console.log(await res.json())
   }
 
   //show error messages
