@@ -23,7 +23,7 @@ function OverallStats({ childToParent }) {
 
   useEffect(() => {
     if (profile !== null) {
-      loadingShow(true);
+      
       ConnectMojang(profile);
     }
   }, []);
@@ -84,6 +84,7 @@ function OverallStats({ childToParent }) {
         invalidNameShow(true);
       }
       else{
+        loadingShow(true);
         ConnectAPI(res.data.player.raw_id);
       }
 
@@ -96,26 +97,27 @@ function OverallStats({ childToParent }) {
   async function ConnectAPI(uuid) {
     try {
       const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
-      const res = await rawRes.json().then(loadingShow(false));
+      const res = await rawRes.json()
 
       if(res == undefined){
-        
+        loadingShow(false)
         wentWrongShow(true);
       }
       else if (res.success === true && res.player == null) {
-        
+        loadingShow(false)
         invalidNameShow(true);
       } else if (
         res.success === false &&
         res.cause === "You have already looked up this name recently"
       ) {
-        
+        loadingShow(false)
         frequentNameShow(true);
       } else {
         if (res.player.stats.Bedwars == null) {
-          
+          loadingShow(false)
           noDataShow(true);
         } else {
+          loadingShow(false)
           infoShow(true);
           childToParent(res);
           getBedwarsData(res);
