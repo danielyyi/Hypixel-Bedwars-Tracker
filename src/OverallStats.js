@@ -92,9 +92,7 @@ function OverallStats({ childToParent }) {
 
   async function ConnectAPI(profile) {
     try {
-      const rawRes = await fetch(
-        `https://api.hypixel.net/player?key=${key}&uuid=${profile}`
-      );
+      const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
       const res = await rawRes.json();
       if (res.success === true && res.player == null) {
         invalidNameShow(true);
