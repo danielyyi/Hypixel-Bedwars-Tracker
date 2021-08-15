@@ -21,6 +21,7 @@ function OverallStats({ childToParent }) {
   const [invalidName, invalidNameShow] = useState(false);
   const [frequentName, frequentNameShow] = useState(false);
   const [noData, noDataShow] = useState(false);
+  const [wentWront, wentWrontShow] = useState(false);
 
   const [info, infoShow] = useState(false);
 
@@ -89,7 +90,10 @@ function OverallStats({ childToParent }) {
     try {
       const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
       const res = await rawRes.json();
-      if (res.success === true && res.player == null) {
+      if(res == undefined){
+        wentWrontShow(true);
+      }
+      else if (res.success === true && res.player == null) {
         invalidNameShow(true);
       } else if (
         res.success === false &&
@@ -168,6 +172,11 @@ function OverallStats({ childToParent }) {
           {frequentName ? (
             <div className="error-text">
               Please wait a bit before searching another name.
+            </div>
+          ) : null}
+          {wentWront ? (
+            <div className="error-text">
+              Something went wrong :(
             </div>
           ) : null}
         </div>
