@@ -29,7 +29,7 @@ function App() {
         <Nav />
         <SearchBar />
         <HomeStats />
-        <OverallStats childToParent={childToParent} />
+        <OverallStats type="module" childToParent={childToParent} />
         <Tabs res={data} />
         <Footer />
       </>
