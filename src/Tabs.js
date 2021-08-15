@@ -16,6 +16,20 @@ function Tabs({ res }) {
     }
   }, [res]);
 
+
+
+  const { search } = useLocation();
+  const searchParams = new URLSearchParams(search);
+  const profile = searchParams.get("profile");
+
+
+  useEffect(() => {
+    if (profile !== null) {
+      loadingShow(true)
+    }
+  }, []);
+  const [loading, loadingShow] = useState(false);
+
   //compiles data for "# of resources by gamemode" chart
   const [resourcesChartData, setResourcesChartData] = useState({});
   const updateResourcesChartData = (resourcesArray) => {
@@ -370,6 +384,7 @@ function Tabs({ res }) {
     updateRatiosChartData(stats);
     updateStatsPerGameChartData(stats);
     updateState(stats);
+    loadingShow(false);
     infoShow(true);
   };
   const ingotsArray = ["iron", "gold", "diamond", "emerald"];
@@ -407,6 +422,9 @@ function Tabs({ res }) {
   return (
     <div>
       <div className="container">
+      {loading ? (
+            <div className="error-text" style={{color: 'white'}}>Loading...</div>
+          ) : null}
         {info ? (
           <div className="bloc-tabs">
             <button
