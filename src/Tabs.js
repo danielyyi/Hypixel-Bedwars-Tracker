@@ -13,7 +13,6 @@ function Tabs({ res }) {
   useEffect(() => {
     if (res.success === true) {
       assignData(res);
-      loadingShow(true)
     }
   }, [res]);
 
@@ -232,7 +231,6 @@ function Tabs({ res }) {
   };
   //used to toggle things from hidden to shown
   const [info, infoShow] = useState(false);
-  const [loading, loadingShow] = useState(false);
   //compiles data for the 1v8, 2v8, 3v4, 4v4 player cards
 
   
@@ -377,7 +375,6 @@ function Tabs({ res }) {
     updateRatiosChartData(stats);
     updateStatsPerGameChartData(stats);
     updateState(stats);
-    loadingShow(false);
     infoShow(true);
   };
   const ingotsArray = ["iron", "gold", "diamond", "emerald"];
@@ -415,9 +412,6 @@ function Tabs({ res }) {
   return (
     <div>
       <div className="container">
-      {loading ? (
-            <div className="error-text" style={{color: 'white'}}>Loading...</div>
-          ) : null}
         {info ? (
           <div className="bloc-tabs">
             <button

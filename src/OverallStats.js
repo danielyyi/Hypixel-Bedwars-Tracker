@@ -9,6 +9,18 @@ function OverallStats({ childToParent }) {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   const profile = searchParams.get("profile");
+  
+
+
+  //show error messages
+  const [invalidName, invalidNameShow] = useState(false);
+  const [frequentName, frequentNameShow] = useState(false);
+  const [noData, noDataShow] = useState(false);
+  const [wentWrong, wentWrongShow] = useState(false);
+  const [loading, loadingShow] = useState(false);
+
+  const [info, infoShow] = useState(false);
+
   useEffect(() => {
     if (profile !== null) {
       
@@ -17,13 +29,7 @@ function OverallStats({ childToParent }) {
   }, []);
 
 
-  //show error messages
-  const [invalidName, invalidNameShow] = useState(false);
-  const [frequentName, frequentNameShow] = useState(false);
-  const [noData, noDataShow] = useState(false);
-  const [wentWront, wentWrontShow] = useState(false);
 
-  const [info, infoShow] = useState(false);
 
   const [state, setState] = useState(
     {
@@ -77,6 +83,7 @@ function OverallStats({ childToParent }) {
         invalidNameShow(true);
       }
       else{
+        loadingShow(true);
         ConnectAPI(res.data.player.raw_id);
       }
 
@@ -89,9 +96,10 @@ function OverallStats({ childToParent }) {
   async function ConnectAPI(uuid) {
     try {
       const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
-      const res = await rawRes.json();
+      const res = await rawRes.json().then(loadingShow(false));
+
       if(res == undefined){
-        wentWrontShow(true);
+        wentWrongShow(true);
       }
       else if (res.success === true && res.player == null) {
         invalidNameShow(true);
@@ -174,9 +182,16 @@ function OverallStats({ childToParent }) {
               Please wait a bit before searching another name.
             </div>
           ) : null}
-          {wentWront ? (
+          {wentWrong ? (
             <div className="error-text">
               Something went wrong :(
+            </div>
+          ) : null}
+          {loading ? (
+          <div className="infoWrapper" id="infoWrapper">
+            <div className="error-text" style={{color:'white'}}>
+              Loading stats...
+            </div>
             </div>
           ) : null}
         </div>
