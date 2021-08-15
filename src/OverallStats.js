@@ -80,7 +80,6 @@ function OverallStats({ childToParent }) {
       );
       const res = await rawRes.json();
       if(res.data.player == undefined){
-        loadingShow(false);
         invalidNameShow(true);
       }
       else{
