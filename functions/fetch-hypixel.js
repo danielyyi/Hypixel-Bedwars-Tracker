@@ -2,7 +2,6 @@ const fetch = require("node-fetch");
 exports.handler = async (event, context) => {
   const uuid = event.queryStringParameters.uuid
   const key = process.env.REACT_APP_API_KEY;
-  const hi = "Hi Daniel"
   const rawRes = await fetch(
    `https://api.hypixel.net/player?key=${key}&uuid=${uuid}`
   );
@@ -14,7 +13,7 @@ exports.handler = async (event, context) => {
       'Access-Control-Allow-Headers':
         'Origin, X-Requested-With, Content-Type, Accept'
     },
-    body: JSON.stringify(hi)
+    body: JSON.stringify(res)
   }
 }
 
