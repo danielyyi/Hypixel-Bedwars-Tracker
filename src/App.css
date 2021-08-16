@@ -67,6 +67,13 @@ nav {
   box-shadow: 10px 10px 5px rgb(31, 31, 31, 0.15);
 }
 
+.star{
+  color: rgb(255, 222, 73);
+  word-break: keep-all;
+  font-size: 20px;
+  
+}
+
 .logo {
   text-transform: uppercase;
   font-size: 20px;

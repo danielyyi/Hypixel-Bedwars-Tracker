@@ -206,7 +206,7 @@ function Tabs({ res }) {
           ],
         },
         {
-          label: "FK/FD Ratio",
+          label: "Final Kill/Final Death Ratio",
           backgroundColor: "#ff9f1c",
           data: [
             stats.one_statsArray[11] ,
@@ -542,7 +542,7 @@ function Tabs({ res }) {
                           <div className="stat-card-value">{state.One[10]}</div>
                         </li>
                         <li>
-                          <div className="stat-card-header">FKFD</div>
+                          <div className="stat-card-header">FKDR</div>
                           <div className="stat-card-value">{state.One[11]}</div>
                         </li>
                         <li>
@@ -648,7 +648,7 @@ function Tabs({ res }) {
                           <div className="stat-card-value">{state.Two[10]}</div>
                         </li>
                         <li>
-                          <div className="stat-card-header">FKFD</div>
+                          <div className="stat-card-header">FKDR</div>
                           <div className="stat-card-value">{state.Two[11]}</div>
                         </li>
                         <li>
@@ -774,7 +774,7 @@ function Tabs({ res }) {
                           </div>
                         </li>
                         <li>
-                          <div className="stat-card-header">FKFD</div>
+                          <div className="stat-card-header">FKDR</div>
                           <div className="stat-card-value">
                             {state.Three[11]}
                           </div>
@@ -962,7 +962,7 @@ function Tabs({ res }) {
                 </div>
                 <div className="bar-graph-card">
                   <h3 id="chart-header">
-                    K/D, BB/BL, and FK/FD by Gamemode
+                    K/D, BB/BL, and FK/DR by Gamemode
                   </h3>
                   <Bar
                     data={ratiosChartData}

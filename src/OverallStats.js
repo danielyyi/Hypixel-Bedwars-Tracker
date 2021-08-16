@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+
+
 
 const key = process.env.REACT_APP_API_KEY;
 const f = new Intl.NumberFormat('en')
 
 function OverallStats({ childToParent }) {
+  
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   const profile = searchParams.get("profile");
@@ -46,7 +51,8 @@ function OverallStats({ childToParent }) {
       uuid: "",
       finalKills: 0,
       finalDeaths: 0,
-      fkfd: 0
+      fkfd: 0,
+      stars: 0,
     },
     []
   );
@@ -68,7 +74,8 @@ function OverallStats({ childToParent }) {
         uuid: stats.uuid,
         finalKills: stats.finalKills,
         finalDeaths: stats.finalDeaths,
-        fkfd: stats.fkfd
+        fkfd: stats.fkfd,
+        stars: stats.stars,
       },
       []
     );
@@ -97,6 +104,8 @@ function OverallStats({ childToParent }) {
     try {
       const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
       const res = await rawRes.json()
+      //const rawRes = await fetch(`https://api.hypixel.net/player?key=${key}&uuid=${uuid}`)
+      //const res = await rawRes.json()
       console.log(res)
       if(res == undefined){
         loadingShow(false)
@@ -151,6 +160,7 @@ function OverallStats({ childToParent }) {
     const finalKills = res.player.stats.Bedwars.final_kills_bedwars;
     const finalDeaths = res.player.stats.Bedwars.final_deaths_bedwars;
     const fkfd = Math.round(100* (res.player.stats.Bedwars.final_kills_bedwars/res.player.stats.Bedwars.final_deaths_bedwars))/100
+    const stars = res.player.achievements.bedwars_level
     const stats = {
       wins,
       losses,
@@ -166,6 +176,7 @@ function OverallStats({ childToParent }) {
       finalKills,
       finalDeaths,
       fkfd,
+      stars,
     };
     updateState(stats);
   }
@@ -210,12 +221,21 @@ function OverallStats({ childToParent }) {
                   src={`https://minotar.net/helm/${state.uuid}/100.png`}
                   className="player-head"
                 />
+                
+          </div>
+          <div className="infoWrapper">
+          <div className="star">{state.stars}<FontAwesomeIcon icon={faStar} /></div>
           </div>
           <div className="infoWrapper" id="infoWrapper">
             
             <div className="infoName" id="infoName">
               
-              <div className="name">{state.displayName}'s Bedwars Stats</div>
+              <div className="name">
+                {state.displayName}'s Bedwars Stats
+                
+              </div>
+              
+              
             </div>
           </div>
           <div className="infoWrapper" id="infoWrapper">
