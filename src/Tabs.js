@@ -199,10 +199,10 @@ function Tabs({ res }) {
           label: "Beds Broken/Beds Lost Ratio",
           backgroundColor: "#2ec4b6",
           data: [
-            stats.one_statsArray[5] / stats.one_statsArray[6],
-            stats.two_statsArray[5] / stats.two_statsArray[6],
-            stats.three_statsArray[5] / stats.three_statsArray[6],
-            stats.four_statsArray[5] / stats.four_statsArray[6],
+            stats.one_statsArray[6] / stats.one_statsArray[5],
+            stats.two_statsArray[6] / stats.two_statsArray[5],
+            stats.three_statsArray[6] / stats.three_statsArray[5],
+            stats.four_statsArray[6] / stats.four_statsArray[5],
           ],
         },
         {
