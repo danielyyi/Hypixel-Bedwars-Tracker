@@ -97,7 +97,7 @@ function OverallStats({ childToParent }) {
     try {
       const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
       const res = await rawRes.json()
-
+      console.log(res)
       if(res == undefined){
         loadingShow(false)
         wentWrongShow(true);
