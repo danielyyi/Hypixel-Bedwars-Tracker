@@ -207,7 +207,7 @@ function OverallStats({ childToParent }) {
             
           <img
                   alt="playerhead"
-                  src={`https://minotar.net/body/${state.uuid}/100.png`}
+                  src={`https://minotar.net/helm/${state.uuid}/100.png`}
                   className="player-head"
                 />
           </div>
