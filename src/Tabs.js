@@ -439,12 +439,12 @@ function Tabs({ res }) {
                 <div className="coins-exp">
                   <div className="coins-exp-item">
                     Coins:{" "}
-                    <span style={{ color: "lime" }}>{coinsState.coins}</span>
+                    <span style={{ color: "lime" }}>{f.format(coinsState.coins)}</span>
                   </div>
                   <div className="coins-exp-item">
                     Experience:{" "}
                     <span style={{ color: "lime" }}>
-                      {coinsState.experience}
+                      {f.format(coinsState.experience)}
                     </span>
                   </div>
                 </div>
