@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./App.css";
+//handles the footer
 function Footer() {
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);

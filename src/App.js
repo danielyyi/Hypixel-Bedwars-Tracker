@@ -10,19 +10,11 @@ import Footer from "./Footer";
 import HomeStats from "./HomeStats";
 
 function App() {
- 
- 
-  
-  
-
+//helps pass data from overall stats to tabs
   const [data, setData] = useState({ empty: true });
-
   const childToParent = (childdata) => {
     setData(childdata);
   };
- 
-  
-
   return (
     <Router>
       <>

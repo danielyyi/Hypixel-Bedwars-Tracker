@@ -4,20 +4,17 @@ import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
-
-
 const key = process.env.REACT_APP_API_KEY;
 const f = new Intl.NumberFormat('en')
 
 function OverallStats({ childToParent }) {
-  
+  //gets search query
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   const profile = searchParams.get("profile");
-  
 
 
-  //show error messages
+  //show error messages/loading
   const [invalidName, invalidNameShow] = useState(false);
   const [frequentName, frequentNameShow] = useState(false);
   const [noData, noDataShow] = useState(false);
@@ -33,9 +30,7 @@ function OverallStats({ childToParent }) {
     }
   }, []);
 
-
-
-
+//handles the change of overall stats
   const [state, setState] = useState(
     {
       wins: 0,
@@ -56,7 +51,6 @@ function OverallStats({ childToParent }) {
     },
     []
   );
-
   function updateState(stats) {
     setState(
       {
@@ -80,6 +74,8 @@ function OverallStats({ childToParent }) {
       []
     );
   }
+
+  //converts player name to uuid by calling playerdb api
   async function ConnectMojang(profile) {
     try {
       const rawRes = await fetch(
@@ -99,7 +95,7 @@ function OverallStats({ childToParent }) {
     }
   }
 
-
+//calls the netlify lambda function to connect to hypixel api
   async function ConnectAPI(uuid) {
     try {
       const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
@@ -135,7 +131,7 @@ function OverallStats({ childToParent }) {
       console.log(error);
     }
   }
-
+//assigns api data to variables
   function getBedwarsData(res) {
     //overall stats
     const wins = res.player.stats.Bedwars.wins_bedwars;

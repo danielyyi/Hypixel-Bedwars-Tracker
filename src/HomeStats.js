@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./App.css";
 const f = new Intl.NumberFormat('en')
+
+//basically just handles whatever is shown before searching a username. Its just the current player count for now
 function HomeStats() {
   const key = process.env.REACT_APP_API_KEY;
   const { search } = useLocation();

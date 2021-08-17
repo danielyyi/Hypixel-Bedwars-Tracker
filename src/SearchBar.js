@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-
+//handles the search bar
 function SearchBar() {
   return (
     <div>

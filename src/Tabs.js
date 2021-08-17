@@ -8,16 +8,13 @@ defaults.font.size = 12
 defaults.plugins.tooltip.intersect = true;
 const f = new Intl.NumberFormat('en')
 
-
+//this handles the body of the website like the specific stats and graphs
 function Tabs({ res }) {
   useEffect(() => {
     if (res.success === true) {
       assignData(res);
     }
   }, [res]);
-
-
- 
 
   //compiles data for "# of resources by gamemode" chart
   const [resourcesChartData, setResourcesChartData] = useState({});
@@ -179,7 +176,7 @@ function Tabs({ res }) {
       ],
     });
   };
-
+//compiles data for "kd, fkdr, and bbbl" chart
   const [ratiosChartData, setRatiosChartData] = useState({});
   const updateRatiosChartData = (stats) => {
     setRatiosChartData({
@@ -219,6 +216,34 @@ function Tabs({ res }) {
     });
   };
 
+//compiles data for "resources" chart
+  const ingotsArray = ["iron", "gold", "diamond", "emerald"];
+  const resourcesArray = [[], [], [], []];
+  const assignResourceChart = (bedwars) => {
+    try {
+      for (let k = 0; k < gamemodesArray.length; k++) {
+        for (let i = 0; i < ingotsArray.length; i++) {
+          if (
+            bedwars[
+              `${gamemodesArray[k]}_${ingotsArray[i]}_resources_collected_bedwars`
+            ] !== undefined
+          ) {
+            resourcesArray[k][i] =
+              bedwars[
+                `${gamemodesArray[k]}_${ingotsArray[i]}_resources_collected_bedwars`
+              ];
+          } else {
+            resourcesArray[k][i] = 0;
+          }
+        }
+      }
+    } catch (e) {
+      console.log(e);
+    }
+    updateResourcesChartData(resourcesArray);
+  };
+
+  //compiles data for the coins and experience bubble
   const [coinsState, setCoinsState] = useState({
     coins: 0,
     experience: 0,
@@ -233,7 +258,8 @@ function Tabs({ res }) {
   const [info, infoShow] = useState(false);
   //compiles data for the 1v8, 2v8, 3v4, 4v4 player cards
 
-  
+
+  //handles stats arrays
   const [state, setState] = useState(
     {
       One: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -255,7 +281,6 @@ function Tabs({ res }) {
       []
     );
   }
-
   const statsArray = [
     "wins",
     "losses",
@@ -273,6 +298,7 @@ function Tabs({ res }) {
   const gamemodesArray = ["eight_one", "eight_two", "four_three", "four_four"];
   const specificStatsArray = [[], [], [], []];
 
+  //assings api data to stats array
   const assignData = (res) => {
     try {
       for (let k = 0; k < specificStatsArray.length; k++) {
@@ -377,32 +403,7 @@ function Tabs({ res }) {
     updateState(stats);
     infoShow(true);
   };
-  const ingotsArray = ["iron", "gold", "diamond", "emerald"];
-  const resourcesArray = [[], [], [], []];
-  const assignResourceChart = (bedwars) => {
-    try {
-      for (let k = 0; k < gamemodesArray.length; k++) {
-        for (let i = 0; i < ingotsArray.length; i++) {
-          if (
-            bedwars[
-              `${gamemodesArray[k]}_${ingotsArray[i]}_resources_collected_bedwars`
-            ] !== undefined
-          ) {
-            resourcesArray[k][i] =
-              bedwars[
-                `${gamemodesArray[k]}_${ingotsArray[i]}_resources_collected_bedwars`
-              ];
-          } else {
-            resourcesArray[k][i] = 0;
-          }
-        }
-      }
-    } catch (e) {
-      console.log(e);
-    }
-    updateResourcesChartData(resourcesArray);
-  };
-
+ 
   //handles which tabs panel is currently shown
   const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index) => {

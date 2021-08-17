@@ -1,5 +1,5 @@
 * {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-weight: bolder;
   margin: 0;
   padding: 0;
@@ -40,13 +40,13 @@ h1 {
   align-self: center;
 }
 .footer-copyright {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-weight: 400;
   position: relative;
   align-self: center;
 }
 .footer-contact {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-weight: 400;
   position: relative;
   align-self: center;
@@ -67,11 +67,10 @@ nav {
   box-shadow: 10px 10px 5px rgb(31, 31, 31, 0.15);
 }
 
-.star{
+.star {
   color: rgb(255, 222, 73);
   word-break: keep-all;
   font-size: 20px;
-  
 }
 
 .logo {
@@ -83,8 +82,6 @@ nav {
   width: 50px;
   height: 50px;
 }
-
-
 
 .box {
   position: relative;
@@ -126,7 +123,7 @@ nav {
   outline: none;
   padding: 0 25px;
   font-size: 15px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 #enter {
@@ -181,7 +178,7 @@ nav {
   justify-content: center;
   align-content: center;
   border-radius: 3px;
-  padding: 3px 0px 6px 0px
+  padding: 3px 0px 6px 0px;
 }
 
 .infoOverallStats {
@@ -197,12 +194,10 @@ nav {
   flex-wrap: wrap;
 }
 
-.overall-ul li{
+.overall-ul li {
   display: inline-block;
   margin: 0px 15px;
-} 
-
-
+}
 
 .overallStat {
   font-size: 15px;
@@ -372,7 +367,6 @@ h3 {
   margin: 0px 30px 0px 5px;
   font-size: 15px;
   word-break: keep-all;
-  
 }
 
 .coming-soon {
@@ -433,9 +427,9 @@ h3 {
   word-break: keep-all;
 }
 
-.stat-card-title{
+.stat-card-title {
   font-size: 20px;
-  background-color:rgb(36, 36, 36);
+  background-color: rgb(36, 36, 36);
   padding: 5px;
 }
 
@@ -458,30 +452,25 @@ h3 {
     height: 50vh;
   }
 
-
-
-  .overall-ul li{
-   
+  .overall-ul li {
     margin: 0px 10px;
-  } 
+  }
 
-  
-.coming-soon {
-  font-size: 10px;
-}
-
+  .coming-soon {
+    font-size: 10px;
+  }
 }
 
 @media screen and (max-width: 580px) {
-  .stat-card-title{
+  .stat-card-title {
     font-size: 15px;
-    background-color:rgb(36, 36, 36);
+    background-color: rgb(36, 36, 36);
     padding: 5px;
   }
-  .overall-ul li{
+  .overall-ul li {
     line-height: 25px;
-  } 
-  .overall-ul{
+  }
+  .overall-ul {
     margin-top: 0px;
   }
   #enter {
@@ -516,20 +505,19 @@ h3 {
   .stat-card {
     height: 245px;
   }
-  
+
   .infoName {
     font-size: 20px;
   }
   .stat-card-header {
     font-size: 9px;
-
   }
   .stat-card-value {
     font-size: 19px;
     margin-bottom: -15px;
   }
 
-  .h3{
+  .h3 {
     font-size: 9px;
   }
   .logo {
@@ -551,7 +539,6 @@ h3 {
   .oStatBlock {
     margin-bottom: -20px;
   }
- 
 
   .error-text {
     font-size: 12px;

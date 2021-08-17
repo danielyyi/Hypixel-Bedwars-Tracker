@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-
+//handles the navbar
 function Nav() {
   return (
     <nav>
