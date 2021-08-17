@@ -94,7 +94,6 @@ function OverallStats({ childToParent }) {
       console.log(e);
     }
   }
-
 //calls the netlify lambda function to connect to hypixel api
   async function ConnectAPI(uuid) {
     try {

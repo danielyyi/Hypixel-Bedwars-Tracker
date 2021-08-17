@@ -1,7 +1,6 @@
 const fetch = require("node-fetch");
 exports.handler = async (event, context) => {
   const key = process.env.REACT_APP_API_KEY;
-
   //calls hypixel public api and retrieves player count
   try{
     const rawRes = await fetch(

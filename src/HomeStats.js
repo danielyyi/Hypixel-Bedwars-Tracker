@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./App.css";
 const f = new Intl.NumberFormat('en')
+//handles info shown before username is searched. Right now it is just the player count
 function HomeStats() {
   const key = process.env.REACT_APP_API_KEY;
   const { search } = useLocation();
@@ -14,7 +15,6 @@ function HomeStats() {
   }, []);
 
   const [info, infoShow] = useState(false);
-
   const [state, setState] = useState(
     {
       bwPlayerCount: 0,
@@ -35,6 +35,7 @@ function HomeStats() {
     );
   }
 
+  //connects to hypixel api via netlify functions
   async function ConnectAPI() {
     try {
       const rawRes = await fetch(`/.netlify/functions/fetch-count`);
