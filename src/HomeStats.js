@@ -5,7 +5,7 @@ const f = new Intl.NumberFormat('en')
 
 //basically just handles whatever is shown before searching a username. Its just the current player count for now
 function HomeStats() {
-  const key = process.env.REACT_APP_API_KEY;
+  //const key = process.env.REACT_APP_API_KEY;
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   const profile = searchParams.get("profile");
@@ -16,7 +16,6 @@ function HomeStats() {
   }, []);
 
   const [info, infoShow] = useState(false);
-
   const [state, setState] = useState(
     {
       bwPlayerCount: 0,
@@ -39,8 +38,8 @@ function HomeStats() {
 
   async function ConnectAPI() {
     try {
-      const rawRes = await fetch(`https://api.hypixel.net/counts?key=${key}`);
-      const count = await rawRes.json();
+      const rawRes = await fetch(`/.netlify/functions/fetch-count`)
+      const count = await rawRes.json()
       updateState(count);
       infoShow(true);
     } catch (error) {
