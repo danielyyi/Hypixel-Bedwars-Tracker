@@ -1,10 +1,11 @@
 const fetch = require("node-fetch");
 exports.handler = async (event, context) => {
-  const uuid = event.queryStringParameters.uuid
   const key = process.env.REACT_APP_API_KEY;
+
+  //calls hypixel public api and retrieves player count
   try{
     const rawRes = await fetch(
-      `https://api.hypixel.net/player?key=${key}&uuid=${uuid}`
+      `https://api.hypixel.net/counts?key=${key}`
      );
      const res = await rawRes.json();
      return {
