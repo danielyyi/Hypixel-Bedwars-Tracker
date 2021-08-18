@@ -97,10 +97,10 @@ function OverallStats({ childToParent }) {
 //calls the netlify lambda function to connect to hypixel api
   async function ConnectAPI(uuid) {
     try {
-      //const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
-      //const res = await rawRes.json()
-      const rawRes = await fetch(`https://api.hypixel.net/player?key=${key}&uuid=${uuid}`)
+      const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
       const res = await rawRes.json()
+      //const rawRes = await fetch(`https://api.hypixel.net/player?key=${key}&uuid=${uuid}`)
+      //const res = await rawRes.json()
       console.log(res)
       if(res == undefined){
         loadingShow(false)

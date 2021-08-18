@@ -38,11 +38,11 @@ function HomeStats() {
   //connects to hypixel api via netlify functions
   async function ConnectAPI() {
     try {
-      //const rawRes = await fetch(`/.netlify/functions/fetch-count`);
-      //const count = await rawRes.json();
+      const rawRes = await fetch(`/.netlify/functions/fetch-count`);
+      const count = await rawRes.json();
 
-      const rawRes = await fetch(`https://api.hypixel.net/counts?key=${key}`)
-      const count = await rawRes.json()
+      //const rawRes = await fetch(`https://api.hypixel.net/counts?key=${key}`)
+      //const count = await rawRes.json()
 
       updateState(count);
       infoShow(true);
