@@ -93,14 +93,14 @@ function OverallStats({ childToParent }) {
     } catch (e) {
       console.log(e);
     }
-  }
+  } 
 //calls the netlify lambda function to connect to hypixel api
   async function ConnectAPI(uuid) {
     try {
-      const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
-      const res = await rawRes.json()
-      //const rawRes = await fetch(`https://api.hypixel.net/player?key=${key}&uuid=${uuid}`)
+      //const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
       //const res = await rawRes.json()
+      const rawRes = await fetch(`https://api.hypixel.net/player?key=${key}&uuid=${uuid}`)
+      const res = await rawRes.json()
       console.log(res)
       if(res == undefined){
         loadingShow(false)
@@ -245,10 +245,10 @@ function OverallStats({ childToParent }) {
                   </div>
                 </li>
                 <li>
-                  <div className="overallStat" style={{ color: "red" }}>
-                    Losses
+                  <div className="overallStat" style={{ color: "lime" }}>
+                    Beds Broken
                   </div>
-                  <div className="oStatValue">{f.format(state.losses)}</div>
+                  <div className="oStatValue">{f.format(state.bedsBroken)}</div>
                 </li>
                 <li>
                   <div className="overallStat" style={{ color: "lime" }}>
@@ -257,16 +257,17 @@ function OverallStats({ childToParent }) {
                   <div className="oStatValue">{f.format(state.kills)}</div>
                 </li>
                 <li>
+                  <div className="overallStat" style={{ color: "lime" }}>
+                    Final Kills
+                  </div>
+                  <div className="oStatValue">{f.format(state.finalKills)}</div>
+                </li>
+               
+                <li>
                   <div className="overallStat" style={{ color: "red" }}>
                     Deaths
                   </div>
                   <div className="oStatValue">{f.format(state.deaths)}</div>
-                </li>
-                <li>
-                  <div className="overallStat" style={{ color: "lime" }}>
-                    Beds Broken
-                  </div>
-                  <div className="oStatValue">{f.format(state.bedsBroken)}</div>
                 </li>
                 <li>
                   <div className="overallStat" style={{ color: "red" }}>
@@ -275,10 +276,10 @@ function OverallStats({ childToParent }) {
                   <div className="oStatValue">{f.format(state.bedsLost)}</div>
                 </li>
                 <li>
-                  <div className="overallStat" style={{ color: "lime" }}>
-                    Final Kills
+                  <div className="overallStat" style={{ color: "red" }}>
+                    Losses
                   </div>
-                  <div className="oStatValue">{f.format(state.finalKills)}</div>
+                  <div className="oStatValue">{f.format(state.losses)}</div>
                 </li>
                 <li>
                   <div className="overallStat" style={{ color: "red" }}>

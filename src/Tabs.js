@@ -412,7 +412,7 @@ function Tabs({ res }) {
   //----------------------------------------------------
   return (
     <div>
-      <div className="container">
+      <div className="container" >
         {info ? (
           <div className="bloc-tabs">
             <button

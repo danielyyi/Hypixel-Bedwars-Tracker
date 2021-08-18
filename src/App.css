@@ -5,8 +5,22 @@
   padding: 0;
 }
 
+
+
+
 body {
+  background-image: url("https://th.bing.com/th/id/R.652c1b5f30ec2c72faa77b9f50d60dd9?rik=%2b4%2fs1KIeZlBVNQ&pid=ImgRaw&r=0"); 
+  
   background-color: rgb(70, 70, 70);
+
+  /* Full height */
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 h2 {
   font-size: 20;
@@ -68,9 +82,13 @@ nav {
 }
 
 .star {
-  color: rgb(255, 222, 73);
+  color: rgb(255, 228, 75);
   word-break: keep-all;
   font-size: 20px;
+  background-color: rgba(58, 58, 58, 0.068);
+  border-radius: 5px;
+  padding: 0px 10px;
+
 }
 
 .logo {
@@ -81,6 +99,8 @@ nav {
 .player-head {
   width: 50px;
   height: 50px;
+ 
+  box-shadow: 10px 10px 5px rgb(31, 31, 31, 0.15);
 }
 
 .box {
@@ -105,6 +125,7 @@ nav {
 .box {
   min-width: 300px;
   max-height: 100px;
+  
 }
 
 .box h2 {
@@ -124,6 +145,7 @@ nav {
   padding: 0 25px;
   font-size: 15px;
   font-family: "Ubuntu", sans-serif;
+  box-shadow: 10px 10px 5px rgb(31, 31, 31, 0.15);
 }
 
 #enter {
@@ -136,6 +158,7 @@ nav {
   cursor: pointer;
   background-color: rgb(22, 136, 22);
   color: white;
+  box-shadow: 10px 10px 5px rgb(31, 31, 31, 0.15);
 }
 
 .home-stat-wrapper {
@@ -143,6 +166,7 @@ nav {
   display: flex;
   justify-content: center;
   top: 50px;
+  
 }
 
 .home-stat-card {
@@ -166,6 +190,7 @@ nav {
   justify-content: center;
   margin: 10px 0px 0px 0px;
   border-radius: 7px;
+  
 }
 
 .infoName {
@@ -179,6 +204,7 @@ nav {
   align-content: center;
   border-radius: 3px;
   padding: 3px 0px 6px 0px;
+  box-shadow: 10px 10px 5px rgb(31, 31, 31, 0.3);
 }
 
 .infoOverallStats {
@@ -192,6 +218,7 @@ nav {
   justify-content: space-around;
   border-radius: 3px;
   flex-wrap: wrap;
+  box-shadow: 10px 10px 5px rgb(31, 31, 31, 0.3);
 }
 
 .overall-ul li {
@@ -240,12 +267,12 @@ nav {
 }
 
 .tabContainer .buttonContainer button:hover {
-  background-color: rgb(63, 62, 62);
+  background-color: rgb(83, 83, 83);
 }
 
 .tabContainer .tabPanel {
   height: 900px;
-  background-color: rgb(58, 58, 58);
+  background-color: rgb(204, 204, 204);
   color: white;
 
   display: flex;
@@ -282,6 +309,7 @@ nav {
   position: relative;
   outline: none;
   color: white;
+  
 }
 
 .active-tabs {
@@ -298,6 +326,7 @@ nav {
   width: calc(100% + 2px);
   height: 5px;
   background: rgb(0, 230, 0);
+  
 }
 
 button {
@@ -323,6 +352,7 @@ button {
 .active-content {
   display: block;
   color: white;
+  box-shadow: 10px 10px 5px rgb(31, 31, 31, 0.3);
 }
 
 .stat-cards-holder {
@@ -440,6 +470,9 @@ h3 {
   .bar-graph-card {
     padding-bottom: 50px;
   }
+
+ 
+
 }
 @media screen and (max-width: 1000px) {
   .stat-card {
@@ -462,6 +495,7 @@ h3 {
 }
 
 @media screen and (max-width: 580px) {
+
   .stat-card-title {
     font-size: 15px;
     background-color: rgb(36, 36, 36);
@@ -526,17 +560,18 @@ h3 {
   }
 
   .overallStat {
-    font-size: 10px;
+    font-size: 9px;
     height: 27px;
     color: rgb(219, 219, 219);
   }
   .oStatValue {
     margin: -7px 0px;
-    font-size: 20px;
+    font-size: 19px;
     color: white;
   }
 
   .oStatBlock {
+    text-align: center;
     margin-bottom: -20px;
   }
 
