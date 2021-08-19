@@ -5,18 +5,8 @@
   padding: 0;
 }
 
-
-
-
-
-
-
-body{
-  background-image: url("https://www.schematicstore.com/shopdata/1803/sales/53802264f22d8b637585252658fa2498.png"); 
-  background-position: top;
-  background-size: cover;
- background-color: rgb(70, 70, 70);
- background-attachment:fixed;
+body {
+  background-color: rgb(70, 70, 70);
 }
 h2 {
   font-size: 20;
@@ -75,15 +65,12 @@ nav {
   top: 0;
   z-index: 999;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1);
-
 }
 
 .star {
   color: rgb(255, 228, 75);
   word-break: keep-all;
   font-size: 20px;
-  
-
 }
 
 .logo {
@@ -94,7 +81,6 @@ nav {
 .player-head {
   width: 50px;
   height: 50px;
-
 }
 
 .box {
@@ -119,7 +105,6 @@ nav {
 .box {
   min-width: 300px;
   max-height: 100px;
-  
 }
 
 .box h2 {
@@ -139,7 +124,6 @@ nav {
   padding: 0 25px;
   font-size: 15px;
   font-family: "Ubuntu", sans-serif;
-  
 }
 
 #enter {
@@ -152,7 +136,6 @@ nav {
   cursor: pointer;
   background-color: rgb(22, 136, 22);
   color: white;
-  
 }
 
 .home-stat-wrapper {
@@ -160,7 +143,6 @@ nav {
   display: flex;
   justify-content: center;
   top: 50px;
-  
 }
 
 .home-stat-card {
@@ -184,7 +166,6 @@ nav {
   justify-content: center;
   margin: 10px 0px 0px 0px;
   border-radius: 7px;
-  
 }
 
 .infoName {
@@ -198,7 +179,6 @@ nav {
   align-content: center;
   border-radius: 3px;
   padding: 3px 0px 6px 0px;
- 
 }
 
 .infoOverallStats {
@@ -212,7 +192,6 @@ nav {
   justify-content: space-around;
   border-radius: 3px;
   flex-wrap: wrap;
- 
 }
 
 .overall-ul li {
@@ -303,7 +282,6 @@ nav {
   position: relative;
   outline: none;
   color: white;
-  
 }
 
 .active-tabs {
@@ -320,7 +298,6 @@ nav {
   width: calc(100% + 2px);
   height: 5px;
   background: rgb(0, 230, 0);
-  
 }
 
 button {
@@ -346,7 +323,6 @@ button {
 .active-content {
   display: block;
   color: white;
- 
 }
 
 .stat-cards-holder {
@@ -464,9 +440,6 @@ h3 {
   .bar-graph-card {
     padding-bottom: 50px;
   }
-
- 
-
 }
 @media screen and (max-width: 1000px) {
   .stat-card {
@@ -489,7 +462,6 @@ h3 {
 }
 
 @media screen and (max-width: 580px) {
-
   .stat-card-title {
     font-size: 15px;
     background-color: rgb(36, 36, 36);
@@ -501,7 +473,6 @@ h3 {
   }
   .overall-ul {
     margin-top: 0px;
- 
   }
   #enter {
     height: 40px;
