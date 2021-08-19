@@ -8,18 +8,15 @@
 
 
 
-body {
- /* background-image: url("https://www.schematicstore.com/shopdata/1803/sales/53802264f22d8b637585252658fa2498.png"); */
-  /*background-position: top center;*/
+
+
+
+body{
+  background-image: url("https://www.schematicstore.com/shopdata/1803/sales/53802264f22d8b637585252658fa2498.png"); 
+  background-position: top;
+  background-size: cover;
  background-color: rgb(70, 70, 70);
-
-  /* Full height */
- /* height: 100%;*/
-
-  /* Create the parallax scrolling effect */
- /* background-attachment: fixed;*/
-  
- /* background-repeat: no-repeat;*/
+ background-attachment:fixed;
 }
 h2 {
   font-size: 20;
@@ -220,7 +217,7 @@ nav {
 
 .overall-ul li {
   display: inline-block;
-  margin: 0px 15px;
+  margin: 0px 13px;
 }
 
 .overallStat {
@@ -500,9 +497,11 @@ h3 {
   }
   .overall-ul li {
     line-height: 25px;
+    margin: 0px 12px 0px 12px;
   }
   .overall-ul {
     margin-top: 0px;
+ 
   }
   #enter {
     height: 40px;

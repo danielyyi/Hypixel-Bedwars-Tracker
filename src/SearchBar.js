@@ -4,8 +4,11 @@ import "./App.css";
 function SearchBar() {
   return (
     <div>
+      
       <h2 className="box">Find Stats</h2>
+      
       <div className="box">
+        
         <form id="SearchForm">
           <input
             type="text"
@@ -15,6 +18,7 @@ function SearchBar() {
           />
           <button id="enter">Enter</button>
         </form>
+        
       </div>
     </div>
   );

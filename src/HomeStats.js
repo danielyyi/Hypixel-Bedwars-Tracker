@@ -53,7 +53,9 @@ function HomeStats() {
   return (
     <div>
       {info ? (
+        
         <>
+
           <div className="home-stat-wrapper">
             <div className="home-stat-card">
               Current Bedwars Player Count:{" "}
