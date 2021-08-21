@@ -175,6 +175,7 @@ function OverallStats({ childToParent }) {
     updateState(stats);
   }
 
+
   return (
     <div>
       <div className="info-wrapper" id="info-wrapper">
@@ -204,103 +205,123 @@ function OverallStats({ childToParent }) {
       </div>
       {info ? (
         <>
-          <div className="info-wrapper">
-            <img
-              alt="playerhead"
-              src={`https://minotar.net/helm/${state.uuid}/100.png`}
-              className="player-head"
-            />
-          </div>
-          <div className="info-wrapper">
-            <div className="star">
-              {state.stars}
-              <FontAwesomeIcon icon={faStar} />
-            </div>
-          </div>
           <div className="info-wrapper" id="info-wrapper">
             <div className="info-name" id="info-name">
               <div className="name">{state.displayName}'s Bedwars Stats</div>
             </div>
           </div>
           <div className="info-wrapper" id="info-wrapper">
-            <div className="info-overall-stats" id="info-overall-stats">
-              <ul className="overall-ul">
-                <li>
-                  <div className="overall-stat" style={{ color: "lime" }}>
-                    Wins
-                  </div>
-                  <div className="o-stat-value" id="wins">
-                    {f.format(state.wins)}
-                  </div>
-                </li>
-                <li>
-                  <div className="overall-stat" style={{ color: "lime" }}>
-                    Beds Broken
-                  </div>
-                  <div className="o-stat-value">
-                    {f.format(state.bedsBroken)}
-                  </div>
-                </li>
-                <li>
-                  <div className="overall-stat" style={{ color: "lime" }}>
-                    Kills
-                  </div>
-                  <div className="o-stat-value">{f.format(state.kills)}</div>
-                </li>
-                <li>
-                  <div className="overall-stat" style={{ color: "lime" }}>
-                    Final Kills
-                  </div>
-                  <div className="o-stat-value">
-                    {f.format(state.finalKills)}
-                  </div>
-                </li>
 
-                <li>
-                  <div className="overall-stat" style={{ color: "red" }}>
-                    Deaths
-                  </div>
-                  <div className="o-stat-value">{f.format(state.deaths)}</div>
-                </li>
-                <li>
-                  <div className="overall-stat" style={{ color: "red" }}>
-                    Beds Lost
-                  </div>
-                  <div className="o-stat-value">{f.format(state.bedsLost)}</div>
-                </li>
-                <li>
-                  <div className="overall-stat" style={{ color: "red" }}>
-                    Losses
-                  </div>
-                  <div className="o-stat-value">{f.format(state.losses)}</div>
-                </li>
-                <li>
-                  <div className="overall-stat" style={{ color: "red" }}>
-                    Final Deaths
-                  </div>
-                  <div className="o-stat-value">
-                    {f.format(state.finalDeaths)}
-                  </div>
-                </li>
-                <li>
-                  <div className="overall-stat">Win Rate</div>
-                  <div className="o-stat-value">{state.winRate}%</div>
-                </li>
-                <li>
-                  <div className="overall-stat">KD</div>
-                  <div className="o-stat-value">{state.kd}</div>
-                </li>
-                <li>
-                  <div className="overall-stat">FKFD</div>
-                  <div className="o-stat-value">{state.fkfd}</div>
-                </li>
-                <li>
-                  <div className="overall-stat">Games Played</div>
-                  <div className="o-stat-value">
-                    {f.format(state.gamesPlayed)}
-                  </div>
-                </li>
-              </ul>
+          <div className="view-card">
+            <div>
+              <div className="info-wrapper">
+                <img
+                  alt="playerhead"
+                  src={`https://minotar.net/armor/body/${state.uuid}/100.png`}
+                  className="player-head"
+                />
+              </div>
+              <div className="info-wrapper">
+                <div className="star">
+                  {state.stars}
+                  <FontAwesomeIcon icon={faStar} />
+                </div>
+              </div>
+            </div>
+            </div>
+
+            <div className="ovr-card">
+              <div className="ovr-card-title">Overall</div>
+              <div className="ovr-card-info">
+                <div className="ovr-card-column">
+                  <ul className="ovr-card-ul">
+                    <li>
+                      <div
+                        className="ovr-card-header"
+                        style={{ color: "lime" }}
+                      >
+                        Wins
+                      </div>
+                      <div className="ovr-card-value">{f.format(state.wins)}</div>
+                    </li>
+                    <li>
+                      <div
+                        className="ovr-card-header"
+                        style={{ color: "lime" }}
+                      >
+                        Kills
+                      </div>
+                      <div className="ovr-card-value">{f.format(state.kills)}</div>
+                    </li>
+                    <li>
+                      <div
+                        className="ovr-card-header"
+                        style={{ color: "lime" }}
+                      >
+                        Beds Broken
+                      </div>
+                      <div className="ovr-card-value">{f.format(state.bedsBroken)}</div>
+                    </li>
+                    <li>
+                      <div
+                        className="ovr-card-header"
+                        style={{ color: "lime" }}
+                      >
+                        Final Kills
+                      </div>
+                      <div className="ovr-card-value">{f.format(state.finalKills)}</div>
+                    </li>
+                  </ul>
+                </div>
+                <div className="ovr-card-column">
+                  <ul className="ovr-card-ul">
+                    <li>
+                      <div className="ovr-card-header" style={{ color: "red" }}>
+                        Losses
+                      </div>
+                      <div className="ovr-card-value">{f.format(state.losses)}</div>
+                    </li>
+                    <li>
+                      <div className="ovr-card-header" style={{ color: "red" }}>
+                        Deaths
+                      </div>
+                      <div className="ovr-card-value">{f.format(state.deaths)}</div>
+                    </li>
+                    <li>
+                      <div className="ovr-card-header" style={{ color: "red" }}>
+                        Beds Lost
+                      </div>
+                      <div className="ovr-card-value">{f.format(state.bedsLost)}</div>
+                    </li>
+                    <li>
+                      <div className="ovr-card-header" style={{ color: "red" }}>
+                        Final Deaths
+                      </div>
+                      <div className="ovr-card-value">{f.format(state.finalDeaths)}</div>
+                    </li>
+                  </ul>
+                </div>
+                <div className="ovr-card-column">
+                  <ul className="ovr-card-ul">
+                    <li>
+                      <div className="ovr-card-header">Win Rate</div>
+                      <div className="ovr-card-value">{f.format(state.winRate)}%</div>
+                    </li>
+                    <li>
+                      <div className="ovr-card-header">KD</div>
+                      <div className="ovr-card-value">{f.format(state.kd)}</div>
+                    </li>
+                    <li>
+                      <div className="ovr-card-header">FKDR</div>
+                      <div className="ovr-card-value">{f.format(state.fkfd)}</div>
+                    </li>
+                    <li>
+                      <div className="ovr-card-header">Games Played</div>
+                      <div className="ovr-card-value">{f.format(state.gamesPlayed)}</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </>

@@ -67,21 +67,13 @@ nav {
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.1);
 }
 
-.star {
-  color: rgb(255, 228, 75);
-  word-break: keep-all;
-  font-size: 20px;
-}
 
 .logo {
 
   font-size: 20px;
 }
 
-.player-head {
-  width: 50px;
-  height: 50px;
-}
+
 
 .box {
   position: relative;
@@ -166,6 +158,7 @@ nav {
   justify-content: center;
   margin: 10px 0px 0px 0px;
   border-radius: 7px;
+  color: white;
 }
 
 .info-name {
@@ -180,41 +173,6 @@ nav {
   border-radius: 3px;
   padding: 3px 0px 6px 0px;
 }
-
-.info-overall-stats {
-  line-height: 2em;
-  background-color: rgb(51, 51, 51);
-  width: 80%;
-  min-height: 60px;
-  max-height: none;
-  padding: 5px 0px;
-  display: inline-block;
-  justify-content: space-around;
-  border-radius: 3px;
-  flex-wrap: wrap;
-}
-
-.overall-ul li {
-  display: inline-block;
-  margin: 0px 13px;
-}
-
-.overall-stat {
-  font-size: 15px;
-  height: 20px;
-  color: rgb(219, 219, 219);
-  margin-top: 0px;
-}
-
-.o-stat-value {
-  font-size: 25px;
-  color: white;
-}
-
-.o-stat-block {
-  margin: 0px 10px 0px 10px;
-}
-
 
 .error-text {
   color: rgb(230, 0, 0);
@@ -408,6 +366,66 @@ h3 {
   padding: 5px;
 }
 
+.ovr-card-title {
+  font-size: 20px;
+  background-color: rgb(36, 36, 36);
+  padding: 5px;
+}
+
+.ovr-cards-holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.ovr-card {
+  background-color: rgb(43, 43, 43);
+  width: 50%;
+  height: 300px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 5px 0px;
+}
+
+.view-card {
+  background-color: rgb(43, 43, 43);
+  width: 28%;
+  height: 300px;
+  text-align: center;
+  margin: 5px 25px 5px 0px;
+}
+
+.ovr-card-info {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.ovr-card-ul {
+  list-style: none;
+  line-height: 50px;
+}
+
+.ovr-card-header {
+  font-size: 15px;
+}
+.ovr-card-value {
+  margin: -30px 0px -8px 0px;
+  font-size: 25px;
+}
+
+.player-head {
+  width: 100px;
+  height: 195px;
+  margin-top: -10px;
+}
+
+.star {
+  color: rgb(255, 228, 75);
+  word-break: keep-all;
+  font-size: 20px;
+}
+
+
 @media screen and (max-width: 1025px) {
 
   .bar-graph-card {
@@ -418,6 +436,9 @@ h3 {
   .stat-card {
     width: 90%;
   }
+  
+ 
+  
   .bar-graph-card {
     width: 90%;
   }
@@ -435,7 +456,34 @@ h3 {
 }
 
 @media screen and (max-width: 580px) {
+  .ovr-card {
+    width: 80%;
+    margin-top: 0px;
+  }
+  .container{
+    margin-top: 85px;
+  }
+  .info-wrapper{
+    flex-direction: column;
+  }
+  .view-card {
+    width: 80%;
+    height: 150px;
+    margin: 0px 0px 13px 0px;
+  }
+
+  .player-head {
+    width: 50px;
+    height: 97px;
+    margin-top: -35px;
+  }
+
   .stat-card-title {
+    font-size: 15px;
+    background-color: rgb(36, 36, 36);
+    padding: 5px;
+  }
+  .ovr-card-title {
     font-size: 15px;
     background-color: rgb(36, 36, 36);
     padding: 5px;
@@ -458,6 +506,9 @@ h3 {
   .stat-card-ul {
     line-height: 46px;
   }
+  .ovr-card-ul {
+    line-height: 46px;
+  }
   .home-stat-card {
     font-size: 10px;
   }
@@ -477,14 +528,24 @@ h3 {
   .stat-card {
     height: 245px;
   }
+  .ovr-card {
+    height: 245px;
+  }
 
   .infoName {
-    font-size: 20px;
+    font-size: 15px;
   }
   .stat-card-header {
     font-size: 9px;
   }
   .stat-card-value {
+    font-size: 19px;
+    margin-bottom: -15px;
+  }
+  .ovr-card-header {
+    font-size: 9px;
+  }
+  .ovr-card-value {
     font-size: 19px;
     margin-bottom: -15px;
   }
@@ -503,12 +564,16 @@ h3 {
   }
   .o-stat-value {
     margin: -7px 0px;
-    font-size: 19px;
+    font-size: 15px;
     color: white;
   }
 
-
+  .name{
+    font-size: 20px;
+  }
   .error-text {
     font-size: 12px;
   }
+
+  
 }
