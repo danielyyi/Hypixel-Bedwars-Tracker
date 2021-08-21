@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { useLocation } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const key = process.env.REACT_APP_API_KEY;
-const f = new Intl.NumberFormat('en')
+const f = new Intl.NumberFormat("en");
 
 function OverallStats({ childToParent }) {
   //gets search query
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
   const profile = searchParams.get("profile");
-
 
   //show error messages/loading
   const [invalidName, invalidNameShow] = useState(false);
@@ -25,12 +24,11 @@ function OverallStats({ childToParent }) {
 
   useEffect(() => {
     if (profile !== null) {
-      
       ConnectMojang(profile);
     }
   }, []);
 
-//handles the change of overall stats
+  //handles the change of overall stats
   const [state, setState] = useState(
     {
       wins: 0,
@@ -82,45 +80,42 @@ function OverallStats({ childToParent }) {
         `https://playerdb.co/api/player/minecraft/${profile}`
       );
       const res = await rawRes.json();
-      if(res.data.player == undefined){
+      if (res.data.player == undefined) {
         invalidNameShow(true);
-      }
-      else{
+      } else {
         loadingShow(true);
         ConnectAPI(res.data.player.raw_id);
       }
-
     } catch (e) {
       console.log(e);
     }
-  } 
-//calls the netlify lambda function to connect to hypixel api
+  }
+  //calls the netlify lambda function to connect to hypixel api
   async function ConnectAPI(uuid) {
     try {
       const rawRes = await fetch(`/.netlify/functions/fetch-hypixel?uuid=${uuid}`)
       const res = await rawRes.json()
-      //const rawRes = await fetch(`https://api.hypixel.net/player?key=${key}&uuid=${uuid}`)
-      //const res = await rawRes.json()
-      console.log(res)
-      if(res == undefined){
-        loadingShow(false)
+      //const rawRes = await fetch(`https://api.hypixel.net/player?key=${key}&uuid=${uuid}`);
+      //const res = await rawRes.json();
+      console.log(res);
+      if (res == undefined) {
+        loadingShow(false);
         wentWrongShow(true);
-      }
-      else if (res.success === true && res.player == null) {
-        loadingShow(false)
+      } else if (res.success === true && res.player == null) {
+        loadingShow(false);
         invalidNameShow(true);
       } else if (
         res.success === false &&
         res.cause === "You have already looked up this name recently"
       ) {
-        loadingShow(false)
+        loadingShow(false);
         frequentNameShow(true);
       } else {
         if (res.player.stats.Bedwars == null) {
-          loadingShow(false)
+          loadingShow(false);
           noDataShow(true);
         } else {
-          loadingShow(false)
+          loadingShow(false);
           infoShow(true);
           childToParent(res);
           getBedwarsData(res);
@@ -130,16 +125,15 @@ function OverallStats({ childToParent }) {
       console.log(error);
     }
   }
-//assigns api data to variables
+  //assigns api data to variables
   function getBedwarsData(res) {
     //overall stats
     const wins = res.player.stats.Bedwars.wins_bedwars;
     const losses = res.player.stats.Bedwars.losses_bedwars;
-    const winRate =
-      Math.round(
-        (100 * res.player.stats.Bedwars.wins_bedwars) /
-          res.player.stats.Bedwars.games_played_bedwars
-      );
+    const winRate = Math.round(
+      (100 * res.player.stats.Bedwars.wins_bedwars) /
+        res.player.stats.Bedwars.games_played_bedwars
+    );
     const kills = res.player.stats.Bedwars.kills_bedwars;
     const deaths = res.player.stats.Bedwars.deaths_bedwars;
     const kd =
@@ -154,8 +148,13 @@ function OverallStats({ childToParent }) {
     const uuid = res.player.uuid;
     const finalKills = res.player.stats.Bedwars.final_kills_bedwars;
     const finalDeaths = res.player.stats.Bedwars.final_deaths_bedwars;
-    const fkfd = Math.round(100* (res.player.stats.Bedwars.final_kills_bedwars/res.player.stats.Bedwars.final_deaths_bedwars))/100
-    const stars = res.player.achievements.bedwars_level
+    const fkfd =
+      Math.round(
+        100 *
+          (res.player.stats.Bedwars.final_kills_bedwars /
+            res.player.stats.Bedwars.final_deaths_bedwars)
+      ) / 100;
+    const stars = res.player.achievements.bedwars_level;
     const stats = {
       wins,
       losses,
@@ -178,7 +177,7 @@ function OverallStats({ childToParent }) {
 
   return (
     <div>
-      <div className="infoWrapper" id="infoWrapper">
+      <div className="info-wrapper" id="info-wrapper">
         <div>
           {invalidName ? (
             <div className="error-text">Invalid player name.</div>
@@ -194,119 +193,117 @@ function OverallStats({ childToParent }) {
             </div>
           ) : null}
           {wentWrong ? (
-            <div className="error-text">
-              Something went wrong :(
-            </div>
+            <div className="error-text">Something went wrong :(</div>
           ) : null}
           {loading ? (
-          
-            <div className="error-text" style={{color:'white'}}>
+            <div className="error-text" style={{ color: "white" }}>
               Loading stats...
             </div>
-          
           ) : null}
         </div>
       </div>
       {info ? (
-        <div id="infoVisible">
-          <div className="infoWrapper">
-            
-          <img
-                  alt="playerhead"
-                  src={`https://minotar.net/helm/${state.uuid}/100.png`}
-                  className="player-head"
-                />
-                
+        <>
+          <div className="info-wrapper">
+            <img
+              alt="playerhead"
+              src={`https://minotar.net/helm/${state.uuid}/100.png`}
+              className="player-head"
+            />
           </div>
-          <div className="infoWrapper">
-          <div className="star">{state.stars}<FontAwesomeIcon icon={faStar} /></div>
-          </div>
-          <div className="infoWrapper" id="infoWrapper">
-            
-            <div className="infoName" id="infoName">
-              
-              <div className="name">
-                {state.displayName}'s Bedwars Stats
-                
-              </div>
-              
-              
+          <div className="info-wrapper">
+            <div className="star">
+              {state.stars}
+              <FontAwesomeIcon icon={faStar} />
             </div>
           </div>
-          <div className="infoWrapper" id="infoWrapper">
-            <div className="infoOverallStats" id="infoOverallStats">
+          <div className="info-wrapper" id="info-wrapper">
+            <div className="info-name" id="info-name">
+              <div className="name">{state.displayName}'s Bedwars Stats</div>
+            </div>
+          </div>
+          <div className="info-wrapper" id="info-wrapper">
+            <div className="info-overall-stats" id="info-overall-stats">
               <ul className="overall-ul">
                 <li>
-                  <div className="overallStat" style={{ color: "lime" }}>
+                  <div className="overall-stat" style={{ color: "lime" }}>
                     Wins
                   </div>
-                  <div className="oStatValue" id="wins">
+                  <div className="o-stat-value" id="wins">
                     {f.format(state.wins)}
                   </div>
                 </li>
                 <li>
-                  <div className="overallStat" style={{ color: "lime" }}>
+                  <div className="overall-stat" style={{ color: "lime" }}>
                     Beds Broken
                   </div>
-                  <div className="oStatValue">{f.format(state.bedsBroken)}</div>
+                  <div className="o-stat-value">
+                    {f.format(state.bedsBroken)}
+                  </div>
                 </li>
                 <li>
-                  <div className="overallStat" style={{ color: "lime" }}>
+                  <div className="overall-stat" style={{ color: "lime" }}>
                     Kills
                   </div>
-                  <div className="oStatValue">{f.format(state.kills)}</div>
+                  <div className="o-stat-value">{f.format(state.kills)}</div>
                 </li>
                 <li>
-                  <div className="overallStat" style={{ color: "lime" }}>
+                  <div className="overall-stat" style={{ color: "lime" }}>
                     Final Kills
                   </div>
-                  <div className="oStatValue">{f.format(state.finalKills)}</div>
+                  <div className="o-stat-value">
+                    {f.format(state.finalKills)}
+                  </div>
                 </li>
-               
+
                 <li>
-                  <div className="overallStat" style={{ color: "red" }}>
+                  <div className="overall-stat" style={{ color: "red" }}>
                     Deaths
                   </div>
-                  <div className="oStatValue">{f.format(state.deaths)}</div>
+                  <div className="o-stat-value">{f.format(state.deaths)}</div>
                 </li>
                 <li>
-                  <div className="overallStat" style={{ color: "red" }}>
+                  <div className="overall-stat" style={{ color: "red" }}>
                     Beds Lost
                   </div>
-                  <div className="oStatValue">{f.format(state.bedsLost)}</div>
+                  <div className="o-stat-value">{f.format(state.bedsLost)}</div>
                 </li>
                 <li>
-                  <div className="overallStat" style={{ color: "red" }}>
+                  <div className="overall-stat" style={{ color: "red" }}>
                     Losses
                   </div>
-                  <div className="oStatValue">{f.format(state.losses)}</div>
+                  <div className="o-stat-value">{f.format(state.losses)}</div>
                 </li>
                 <li>
-                  <div className="overallStat" style={{ color: "red" }}>
+                  <div className="overall-stat" style={{ color: "red" }}>
                     Final Deaths
                   </div>
-                  <div className="oStatValue">{f.format(state.finalDeaths)}</div>
+                  <div className="o-stat-value">
+                    {f.format(state.finalDeaths)}
+                  </div>
                 </li>
                 <li>
-                  <div className="overallStat">Win Rate</div>
-                  <div className="oStatValue">{state.winRate}%</div>
+                  <div className="overall-stat">Win Rate</div>
+                  <div className="o-stat-value">{state.winRate}%</div>
                 </li>
                 <li>
-                  <div className="overallStat">KD</div>
-                  <div className="oStatValue">{state.kd}</div>
+                  <div className="overall-stat">KD</div>
+                  <div className="o-stat-value">{state.kd}</div>
                 </li>
                 <li>
-                  <div className="overallStat">FKFD</div>
-                  <div className="oStatValue">{state.fkfd}</div>
+                  <div className="overall-stat">FKFD</div>
+                  <div className="o-stat-value">{state.fkfd}</div>
                 </li>
                 <li>
-                  <div className="overallStat">Games Played</div>
-                  <div className="oStatValue">{f.format(state.gamesPlayed)}</div>
+                  <div className="overall-stat">Games Played</div>
+                  <div className="o-stat-value">
+                    {f.format(state.gamesPlayed)}
+                  </div>
                 </li>
               </ul>
             </div>
           </div>
-        </div>
+        </>
       ) : null}
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./App.css";
-const f = new Intl.NumberFormat('en')
+const f = new Intl.NumberFormat("en");
 //handles info shown before username is searched. Right now it is just the player count
 function HomeStats() {
   const key = process.env.REACT_APP_API_KEY;
@@ -41,8 +41,8 @@ function HomeStats() {
       const rawRes = await fetch(`/.netlify/functions/fetch-count`);
       const count = await rawRes.json();
 
-      //const rawRes = await fetch(`https://api.hypixel.net/counts?key=${key}`)
-      //const count = await rawRes.json()
+      //const rawRes = await fetch(`https://api.hypixel.net/counts?key=${key}`);
+      //const count = await rawRes.json();
 
       updateState(count);
       infoShow(true);
@@ -53,17 +53,16 @@ function HomeStats() {
   return (
     <div>
       {info ? (
-        
         <>
-
           <div className="home-stat-wrapper">
             <div className="home-stat-card">
               Current Bedwars Player Count:{" "}
-              <span style={{ color: "lime" }}>{f.format(state.bwPlayerCount)}</span>{" "}
+              <span style={{ color: "lime" }}>
+                {f.format(state.bwPlayerCount)}
+              </span>{" "}
               Players ({state.bwPlayerPercent}%)
             </div>
           </div>
-          
         </>
       ) : null}
     </div>

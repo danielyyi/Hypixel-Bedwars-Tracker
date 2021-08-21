@@ -5,7 +5,7 @@ function Nav() {
   return (
     <nav>
       <div className="logo">
-        <h2>bedwarstats.com</h2>
+        <h2>BEDWARSTATS.COM</h2>
       </div>
     </nav>
   );
