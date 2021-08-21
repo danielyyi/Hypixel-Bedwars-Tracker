@@ -8,7 +8,7 @@ function Footer() {
   const profile = searchParams.get("profile");
   useEffect(() => {
     if (profile == null) {
-      setEmptySpace("500px");
+      setEmptySpace("800px");
     }
   }, []);
   const [emptySpace, setEmptySpace] = useState("3100px");

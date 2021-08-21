@@ -74,7 +74,7 @@ nav {
 }
 
 .logo {
-  text-transform: uppercase;
+
   font-size: 20px;
 }
 
@@ -215,41 +215,6 @@ nav {
   margin: 0px 10px 0px 10px;
 }
 
-.tabContainer {
-  width: 80%;
-  height: 350px;
-  text-align: center;
-  background-color: rgb(58, 58, 58);
-  color: white;
-}
-
-.tabContainer .buttonContainer {
-  height: 15%;
-  background-color: rgb(70, 70, 70);
-}
-
-.tabContainer .buttonContainer button {
-  width: 25%;
-  height: 100%;
-  float: left;
-  border: none;
-  outline: none;
-  padding: 10px;
-  background-color: rgb(58, 58, 58);
-  color: white;
-}
-
-.tabContainer .buttonContainer button:hover {
-  background-color: rgb(83, 83, 83);
-}
-
-.tabContainer .tabPanel {
-  height: 900px;
-  background-color: rgb(204, 204, 204);
-  color: white;
-
-  display: flex;
-}
 
 .error-text {
   color: rgb(230, 0, 0);
@@ -276,13 +241,23 @@ nav {
   text-align: center;
   width: 90%;
   background: rgb(41, 41, 41);
-  cursor: pointer;
+
   font-size: 15px;
   box-sizing: content-box;
   position: relative;
   outline: none;
   color: white;
+
 }
+
+.tabs:not(.active-tabs):hover{
+  background-color: rgb(44, 44, 44);
+}
+
+.tabs:not(:last-child){
+  border-right: 1px solid rgb(32, 32, 32);
+}
+
 
 .active-tabs {
   background: rgb(51, 51, 51);
@@ -370,7 +345,7 @@ h3 {
 }
 
 .coming-soon {
-  margin: 10px 0px 0px 5px;
+  margin: 20px 0px 0px 5px;
   font-size: 15px;
   position: relative;
   word-break: keep-all;
@@ -522,7 +497,6 @@ h3 {
     font-size: 9px;
   }
   .logo {
-    text-transform: uppercase;
     font-size: 15px;
   }
 

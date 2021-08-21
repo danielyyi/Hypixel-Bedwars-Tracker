@@ -1,6 +1,6 @@
 {
-  "short_name": "Bedwars Stats",
-  "name": "Bedwars Stats",
+  "short_name": "bedwarstats",
+  "name": "bedwarstats | most in-depth bedwars stat tracker",
   "icons": [
     {
       "src": "favicon.ico",

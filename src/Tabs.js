@@ -427,6 +427,7 @@ function Tabs({ res }) {
             >
               Graphs
             </button>
+        
           </div>
         ) : null}
         {info ? (
@@ -902,7 +903,7 @@ function Tabs({ res }) {
                     </div>
                   </div>
                 </div>
-                <div className="coming-soon">Dream Modes Coming Soon...</div>
+                
               </div>
             </div>
             <div
@@ -993,9 +994,11 @@ function Tabs({ res }) {
                     }}
                   />
                 </div>
-                <div className="coming-soon">More Graphs Coming Soon...</div>
+                
               </div>
+              <div className="coming-soon">More Graphs Coming Soon...</div>
             </div>
+           
           </div>
         ) : null}
       </div>

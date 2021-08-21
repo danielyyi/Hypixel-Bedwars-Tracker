@@ -63,6 +63,7 @@ function HomeStats() {
               Players ({state.bwPlayerPercent}%)
             </div>
           </div>
+          
         </>
       ) : null}
     </div>
