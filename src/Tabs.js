@@ -1,6 +1,7 @@
 import { useState, useEffect, useLocation } from "react";
 import "./App.css";
 import { Bar, Pie, Radar, defaults } from "react-chartjs-2";
+import Report from "./Report"
 
 defaults.color = "#cdcdcd";
 defaults.font.family = "Ubuntu";
@@ -383,28 +384,36 @@ function Tabs({ res }) {
     } catch (e) {
       console.log(e);
     }
-    const experience = res.player.stats.Bedwars.Experience;
-    const coins = res.player.stats.Bedwars.coins;
-    updateCoinsState(coins, experience);
+
     const one_statsArray = specificStatsArray[0];
     const two_statsArray = specificStatsArray[1];
     const three_statsArray = specificStatsArray[2];
     const four_statsArray = specificStatsArray[3];
 
+    //handles coins and experience
+    const experience = res.player.stats.Bedwars.Experience;
+    const coins = res.player.stats.Bedwars.coins;
+    updateCoinsState(coins, experience);
+
     updateKillTypesChartData(res.player.stats.Bedwars);
     updateDeathTypesChartData(res.player.stats.Bedwars);
+    assignResourceChart(res.player.stats.Bedwars);
+
     const stats = {
       one_statsArray,
       two_statsArray,
       three_statsArray,
       four_statsArray,
     };
-    assignResourceChart(res.player.stats.Bedwars);
     updateRatiosChartData(stats);
     updateStatsPerGameChartData(stats);
     updateState(stats);
     infoShow(true);
+
+
   };
+
+
 
   //handles which tabs panel is currently shown
   const [toggleState, setToggleState] = useState(1);
@@ -428,6 +437,12 @@ function Tabs({ res }) {
               onClick={() => toggleTab(2)}
             >
               Graphs
+            </button>
+            <button
+              className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
+              onClick={() => toggleTab(3)}
+            >
+              Summary
             </button>
           </div>
         ) : null}
@@ -1050,6 +1065,13 @@ function Tabs({ res }) {
                 </div>
               </div>
               <div className="coming-soon">More Graphs Coming Soon...</div>
+            </div>
+            <div
+              className={
+                toggleState === 3 ? "content  active-content" : "content"
+              }
+            >
+              <Report res = {res} />
             </div>
           </div>
         ) : null}
