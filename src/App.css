@@ -491,6 +491,10 @@ h3 {
 }
 
 @media screen and (max-width: 580px) {
+
+  .pr-card {
+    margin-bottom: 0px;
+  }
   .pr-text{
     font-weight: 600;
     font-size: 12px;
