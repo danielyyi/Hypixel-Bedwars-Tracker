@@ -1072,8 +1072,19 @@ function Tabs({ res }) {
             >
               <Report res = {res} />
             </div>
+          
           </div>
         ) : null}
+        <div>
+        <amp-ad width="100vw" height="320"
+     type="adsense"
+     data-ad-client="ca-pub-2975107779776169"
+     data-ad-slot="2568023941"
+     data-auto-format="rspv"
+     data-full-width="">
+  <div overflow=""></div>
+</amp-ad>
+        </div>
       </div>
     </div>
   );
