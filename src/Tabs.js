@@ -1064,7 +1064,6 @@ function Tabs({ res }) {
                   />
                 </div>
               </div>
-              <div className="coming-soon">More Graphs Coming Soon...</div>
             </div>
             <div
               className={

@@ -283,9 +283,9 @@ function Report({ res }) {
     <div className="pr-card-holder">
       <div className="pr-card">
         <div className="pr-text">{`"${state.name} is ${state.rating} Bedwars player, who ${state.winrate}. 
-  This person wins most frequently when ${state.wingamemode}, ${state.fillers[0]} ${state.bestgamemode}. 
+  This person wins most frequently when playing ${state.wingamemode}, ${state.fillers[0]} ${state.bestgamemode}. 
   ${state.fillers[1]} they seem to enjoy playing ${state.mp} the most. In terms of overall stats, ${state.name}'s greatest strength is 
-   ${state.strength}, but ${state.weakness}. (More info coming soon)"`}</div>
+   ${state.strength}, but ${state.weakness}."`}</div>
 
  
           <div className="author">{state.author}</div>
