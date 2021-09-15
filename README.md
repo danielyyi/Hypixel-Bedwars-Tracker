@@ -1,6 +1,6 @@
 # Hypixel Bedwars Stat Tracker Website
 
-Here's the website: https://bedwarstats.com. 
+## Here's the website: https://bedwarstats.com. 
 If you want to test it out but don't know a Minecraft username, try 'Dream'. He's a popular YouTuber.
 
 A website where Hypixel Bedwars players can view their stats through gamemode specific cards and informational graphs. Made with React.js, Chart.js, HTML, and CSS.
