@@ -97,7 +97,7 @@ function OverallStats({ childToParent }) {
       const res = await rawRes.json()
       //const rawRes = await fetch(`https://api.hypixel.net/player?key=${key}&uuid=${uuid}`);
       //const res = await rawRes.json();
-      //console.log(res);
+      console.log(res);
       if (res == undefined) {
         loadingShow(false);
         wentWrongShow(true);
