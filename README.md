@@ -3,7 +3,7 @@
 Here's the website: https://bedwarstats.com. 
 If you want to test it out but don't know a Minecraft username, try 'Dream'. He's a popular YouTuber.
 
-**If not website not working, then that means my minecraft api key expired. I try to refresh it periodically but I am working on other things so it may take a while
+**If website not working, then that means my minecraft api key expired. I try to refresh it periodically but I am working on other things so it may take a while
 
 A website where Hypixel Bedwars players can view their stats through gamemode specific cards and informational graphs. Made with React.js, Chart.js, HTML, and CSS.
 
