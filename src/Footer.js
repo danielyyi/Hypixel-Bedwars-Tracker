@@ -32,7 +32,7 @@ function Footer() {
             alt="github logo"
           ></img>
         </a>
-        <div className="footer-copyright">2021 © Daniel Yi</div>
+        <div className="footer-copyright">2021 © Daniel Yi - PatrioticPleb</div>
       </div>
     </div>
   );
