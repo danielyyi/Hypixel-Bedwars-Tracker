@@ -3,7 +3,7 @@
 Here's the website: https://bedwarstats.com. 
 If you want to test it out but don't know a Minecraft username, try 'Dream'. He's a popular YouTuber.
 
-# Website no longer active. Check out my project portfolio for a video on how it looked: https://danielyyi.github.io/
+# Website no longer active. Check out my project portfolio for a video on how it looked: danielyyi.com
 
 **If website not working, then that means my minecraft api key expired. I try to refresh it periodically but I am working on other things so it may take a while
 
